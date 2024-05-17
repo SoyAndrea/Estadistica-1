@@ -3,12 +3,17 @@ library(rstatix)
 
 ejercicio%>%
   get_summary_stats(.,type="common")
+?get_summary_stats
+
 
 ejercicio%>%
   get_summary_stats(Edad,type="common")
 
 ejercicio%>%
   get_summary_stats(Edad, TAs, TAd,type="common")
+
+ejercicio%>%
+  get_summary_stats(Edad, TAs, TAd,type="quantile", probs = seq(0, 1, 0.25))
 
 ejercicio%>%
   get_summary_stats(Edad, TAs, TAd)
@@ -106,6 +111,7 @@ lines(density(ejercicio$TAs, na.rm=T))
 #######################################
 # BOXPLOTS
 #####################################
+
 boxplot(ejercicio$Edad, data = ejercicio, na.action = NULL,
         xlab = "Edad",
         ylab = "y",main="Boxplot de edad", ann = T, horizontal = TRUE,
@@ -159,7 +165,7 @@ boxplot(TAs~Sexo+ACV, data = ejercicio, na.action = NULL,
 # el paquete table1
 
 #install.packages("table1")
-library(table1) 
+library(table1) # analisis descriptivo de las variables del problema 
 
 table1(~  TAs, data=ejercicio)
 

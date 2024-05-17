@@ -4,7 +4,7 @@ library(tidyverse)
 library(readxl)
 
 # importación de la tabla de datos
-ejercicio <- read_excel("ejercicio.xlsx")
+ejercicio <- read_excel("CLASE 1/ejercicio.xlsx")
 
 
 #para ver el archivo de datos
