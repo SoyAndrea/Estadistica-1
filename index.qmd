@@ -1,0 +1,74 @@
+---
+title: "Estadística 1"
+author: "Andrea Gomez Vargas"
+toc: true
+number-sections: true
+highlight-style: pygments
+format:
+  html: 
+    theme: flatly
+    code-fold: true
+    html-math-method: katex
+  pdf:
+    geometry: 
+      - top=30mm
+      - left=30mm
+  docx: default
+---
+
+# Primera parte: Evaluación conceptual y teórica
+
+1. Consigne las definiciones de Población, muestra y unidad de análisis
+
+2. Consigne, defina y ejemplifique los niveles de medición de Stevens
+
+3. Consigne las principales propiedades de la distribución normal
+
+4. Concepto y elementos constitutivos de las pruebas de hipótesis
+
+# Segunda parte: Evaluación práctica
+
+Se ha realizado una encuesta a jóvenes españoles en el año 2000. Se muestran a continuación las 16 preguntas que contenía el cuestionario.
+
+1. Para cada una de las preguntas definir:
+  
+  a. La/las variables que contienen información a analizar estadísticamente.
+  
+  b. Identificar, para cada una de ellas el nivel de medición y las modalidades/categorías que la integran.
+
+
+# Tercera parte: Análisis estadístico descriptivo
+
+En esta actividad se trabajará con el archivo de datos “cuestionario.xlsx”.
+
+1. Importar los datos a R.
+
+2. Utilizando la función table() y sus funciones anexas, calcular
+
+  a. Las tablas de frecuencias absolutas para las variables ocio, genero, colegio, amor, religión
+  
+  b. Las tablas de frecuencias relativas para las variables ocio, genero, colegio, amor, religión
+
+3. Realizar gráficos de barras para cada una de las variables anteriores
+  
+  a. Con la frecuencia relativa
+  
+  b. Con la frecuencia porcentual
+
+4. Calcular las tablas de contingencia para los siguientes cruces de variables
+  
+  a. Ocio y genero
+  b. Ocio y colegio
+  c. Amor y religión
+  d. Colegio y religión
+  
+  
+# Cuarta parte: Contrastes de hipótesis
+
+Utilizando los datos del archivo cuestionario y técnicas paramétricss y no paramétricas,
+
+a) Determinar con un nivel de significación del 5% si el promedio de horas libres a la semana para ocio o diversión en los hombres es mayor a la de las mujeres. Concluir en términos del problema
+
+b) Determinar si hay diferencias en la cantidad promedio de libros leídos si tenemos en cuenta la asistencia de los jóvenes a colegio estatal o privado. Utilizar un nivel de significación del 5%. Concluir en términos del problema
+
+c) Determinar en cada caso, cuál es el test más adecuado. Justificar.
