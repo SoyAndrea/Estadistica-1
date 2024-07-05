@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -34,7 +68,54 @@ ul.task-list li input[type="checkbox"] {
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="index_files/libs/kePrint-0.0.1/kePrint.js"></script>
 
+<link href="index_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -46,9 +127,38 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#primera-parte-evaluación-conceptual-y-teórica" id="toc-primera-parte-evaluación-conceptual-y-teórica" class="nav-link active" data-scroll-target="#primera-parte-evaluación-conceptual-y-teórica"><span class="header-section-number">1</span> Primera parte: Evaluación conceptual y teórica</a></li>
+  <li><a href="#primera-parte-evaluación-conceptual-y-teórica" id="toc-primera-parte-evaluación-conceptual-y-teórica" class="nav-link active" data-scroll-target="#primera-parte-evaluación-conceptual-y-teórica"><span class="header-section-number">1</span> Primera parte: Evaluación conceptual y teórica</a>
+  <ul class="collapse">
+  <li><a href="#consigne-las-definiciones-de-población-muestra-y-unidad-de-análisis1" id="toc-consigne-las-definiciones-de-población-muestra-y-unidad-de-análisis1" class="nav-link" data-scroll-target="#consigne-las-definiciones-de-población-muestra-y-unidad-de-análisis1"><span class="header-section-number">1.1</span> Consigne las definiciones de Población, muestra y unidad de análisis</a></li>
+  <li><a href="#consigne-defina-y-ejemplifique-los-niveles-de-medición-de-stevens" id="toc-consigne-defina-y-ejemplifique-los-niveles-de-medición-de-stevens" class="nav-link" data-scroll-target="#consigne-defina-y-ejemplifique-los-niveles-de-medición-de-stevens"><span class="header-section-number">1.2</span> Consigne, defina y ejemplifique los niveles de medición de Stevens</a></li>
+  <li><a href="#consigne-las-principales-propiedades-de-la-distribución-normal" id="toc-consigne-las-principales-propiedades-de-la-distribución-normal" class="nav-link" data-scroll-target="#consigne-las-principales-propiedades-de-la-distribución-normal"><span class="header-section-number">1.3</span> Consigne las principales propiedades de la distribución normal</a></li>
+  <li><a href="#concepto-y-elementos-constitutivos-de-las-pruebas-de-hipótesis" id="toc-concepto-y-elementos-constitutivos-de-las-pruebas-de-hipótesis" class="nav-link" data-scroll-target="#concepto-y-elementos-constitutivos-de-las-pruebas-de-hipótesis"><span class="header-section-number">1.4</span> Concepto y elementos constitutivos de las pruebas de hipótesis</a></li>
+  </ul></li>
   <li><a href="#segunda-parte-evaluación-práctica" id="toc-segunda-parte-evaluación-práctica" class="nav-link" data-scroll-target="#segunda-parte-evaluación-práctica"><span class="header-section-number">2</span> Segunda parte: Evaluación práctica</a></li>
-  <li><a href="#tercera-parte-análisis-estadístico-descriptivo" id="toc-tercera-parte-análisis-estadístico-descriptivo" class="nav-link" data-scroll-target="#tercera-parte-análisis-estadístico-descriptivo"><span class="header-section-number">3</span> Tercera parte: Análisis estadístico descriptivo</a></li>
+  <li><a href="#tercera-parte-análisis-estadístico-descriptivo" id="toc-tercera-parte-análisis-estadístico-descriptivo" class="nav-link" data-scroll-target="#tercera-parte-análisis-estadístico-descriptivo"><span class="header-section-number">3</span> Tercera parte: Análisis estadístico descriptivo</a>
+  <ul class="collapse">
+  <li><a href="#importar-los-datos-a-r." id="toc-importar-los-datos-a-r." class="nav-link" data-scroll-target="#importar-los-datos-a-r."><span class="header-section-number">3.1</span> Importar los datos a R.</a></li>
+  <li><a href="#utilizando-la-función-table-y-sus-funciones-anexas-calcular" id="toc-utilizando-la-función-table-y-sus-funciones-anexas-calcular" class="nav-link" data-scroll-target="#utilizando-la-función-table-y-sus-funciones-anexas-calcular"><span class="header-section-number">3.2</span> Utilizando la función table() y sus funciones anexas, calcular</a>
+  <ul class="collapse">
+  <li><a href="#las-tablas-de-frecuencias-absolutas-para-las-variables-ocio-genero-colegio-amor-religión" id="toc-las-tablas-de-frecuencias-absolutas-para-las-variables-ocio-genero-colegio-amor-religión" class="nav-link" data-scroll-target="#las-tablas-de-frecuencias-absolutas-para-las-variables-ocio-genero-colegio-amor-religión"><span class="header-section-number">3.2.1</span> Las tablas de frecuencias absolutas para las variables ocio, genero, colegio, amor, religión</a></li>
+  <li><a href="#las-tablas-de-frecuencias-relativas-para-las-variables-ocio-genero-colegio-amor-religión" id="toc-las-tablas-de-frecuencias-relativas-para-las-variables-ocio-genero-colegio-amor-religión" class="nav-link" data-scroll-target="#las-tablas-de-frecuencias-relativas-para-las-variables-ocio-genero-colegio-amor-religión"><span class="header-section-number">3.2.2</span> Las tablas de frecuencias relativas para las variables ocio, genero, colegio, amor, religión</a></li>
+  </ul></li>
+  <li><a href="#realizar-gráficos-de-barras-para-cada-una-de-las-variables-anteriores" id="toc-realizar-gráficos-de-barras-para-cada-una-de-las-variables-anteriores" class="nav-link" data-scroll-target="#realizar-gráficos-de-barras-para-cada-una-de-las-variables-anteriores"><span class="header-section-number">3.3</span> Realizar gráficos de barras para cada una de las variables anteriores</a>
+  <ul class="collapse">
+  <li><a href="#gráfico-1-frecuencia-absoluta-y-porcentual-por-variable-género" id="toc-gráfico-1-frecuencia-absoluta-y-porcentual-por-variable-género" class="nav-link" data-scroll-target="#gráfico-1-frecuencia-absoluta-y-porcentual-por-variable-género"><span class="header-section-number">3.3.1</span> Gráfico 1: frecuencia absoluta y porcentual por variable género</a></li>
+  <li><a href="#gráfico-2-frecuencia-absoluta-y-porcentual-por-variable-ocio" id="toc-gráfico-2-frecuencia-absoluta-y-porcentual-por-variable-ocio" class="nav-link" data-scroll-target="#gráfico-2-frecuencia-absoluta-y-porcentual-por-variable-ocio"><span class="header-section-number">3.3.2</span> Gráfico 2: frecuencia absoluta y porcentual por variable ocio</a></li>
+  <li><a href="#gráfico-3-frecuencia-absoluta-y-porcentual-por-variable-amor" id="toc-gráfico-3-frecuencia-absoluta-y-porcentual-por-variable-amor" class="nav-link" data-scroll-target="#gráfico-3-frecuencia-absoluta-y-porcentual-por-variable-amor"><span class="header-section-number">3.3.3</span> Gráfico 3: frecuencia absoluta y porcentual por variable amor</a></li>
+  <li><a href="#gráfico-4-frecuencia-absoluta-y-porcentual-por-variable-colegio" id="toc-gráfico-4-frecuencia-absoluta-y-porcentual-por-variable-colegio" class="nav-link" data-scroll-target="#gráfico-4-frecuencia-absoluta-y-porcentual-por-variable-colegio"><span class="header-section-number">3.3.4</span> Gráfico 4: frecuencia absoluta y porcentual por variable colegio</a></li>
+  <li><a href="#gráfico-5-frecuencia-absoluta-y-porcentual-por-variable-religión" id="toc-gráfico-5-frecuencia-absoluta-y-porcentual-por-variable-religión" class="nav-link" data-scroll-target="#gráfico-5-frecuencia-absoluta-y-porcentual-por-variable-religión"><span class="header-section-number">3.3.5</span> Gráfico 5: frecuencia absoluta y porcentual por variable religión</a></li>
+  </ul></li>
+  <li><a href="#calcular-las-tablas-de-contingencia-para-los-siguientes-cruces-de-variables" id="toc-calcular-las-tablas-de-contingencia-para-los-siguientes-cruces-de-variables" class="nav-link" data-scroll-target="#calcular-las-tablas-de-contingencia-para-los-siguientes-cruces-de-variables"><span class="header-section-number">3.4</span> Calcular las tablas de contingencia para los siguientes cruces de variables</a>
+  <ul class="collapse">
+  <li><a href="#ocio-y-genero" id="toc-ocio-y-genero" class="nav-link" data-scroll-target="#ocio-y-genero"><span class="header-section-number">3.4.1</span> Ocio y genero</a></li>
+  <li><a href="#ocio-y-colegio" id="toc-ocio-y-colegio" class="nav-link" data-scroll-target="#ocio-y-colegio"><span class="header-section-number">3.4.2</span> Ocio y colegio</a></li>
+  <li><a href="#amor-y-religión" id="toc-amor-y-religión" class="nav-link" data-scroll-target="#amor-y-religión"><span class="header-section-number">3.4.3</span> Amor y religión</a></li>
+  <li><a href="#colegio-y-religión" id="toc-colegio-y-religión" class="nav-link" data-scroll-target="#colegio-y-religión"><span class="header-section-number">3.4.4</span> Colegio y religión</a></li>
+  </ul></li>
+  </ul></li>
   <li><a href="#cuarta-parte-contrastes-de-hipótesis" id="toc-cuarta-parte-contrastes-de-hipótesis" class="nav-link" data-scroll-target="#cuarta-parte-contrastes-de-hipótesis"><span class="header-section-number">4</span> Cuarta parte: Contrastes de hipótesis</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="index.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
@@ -82,12 +192,551 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="primera-parte-evaluación-conceptual-y-teórica" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Primera parte: Evaluación conceptual y teórica</h1>
+<section id="consigne-las-definiciones-de-población-muestra-y-unidad-de-análisis1" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="consigne-las-definiciones-de-población-muestra-y-unidad-de-análisis1"><span class="header-section-number">1.1</span> Consigne las definiciones de Población, muestra y unidad de análisis<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></h2>
+<ul>
+<li><p><strong>Población:</strong> es un conjunto de <em>todos</em> los elementos que estamos estudiando, acerca de los cuales intentamos sacar conclusiones. Debemos definir esa población de modo que quede claro cuándo cierto elemento pertenece o no a la población.</p></li>
+<li><p><strong>Muestra:</strong> Colección de algunos elementos —no todos—, de la población bajo estudio, utilizada para describir poblaciones.</p>
+<ul>
+<li>Muestra representativa: Muestra que contiene las características importantes de la población en las mismas proporciones en que están contenidas en la población.</li>
+</ul></li>
+<li><p><strong>Unidad de Análisis:</strong> o la unidad de estudio u objeto/sujeto de estudio (los elementos que van a ser estudiados), mientras que la unidad de recolección es la fuente proveedora de la información requerida, son los elementos que funcionan como informantes</p></li>
+</ul>
+</section>
+<section id="consigne-defina-y-ejemplifique-los-niveles-de-medición-de-stevens" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="consigne-defina-y-ejemplifique-los-niveles-de-medición-de-stevens"><span class="header-section-number">1.2</span> Consigne, defina y ejemplifique los niveles de medición de Stevens</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div id="yxjwsbmmwh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#yxjwsbmmwh table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#yxjwsbmmwh thead, #yxjwsbmmwh tbody, #yxjwsbmmwh tfoot, #yxjwsbmmwh tr, #yxjwsbmmwh td, #yxjwsbmmwh th {
+  border-style: none;
+}
+
+#yxjwsbmmwh p {
+  margin: 0;
+  padding: 0;
+}
+
+#yxjwsbmmwh .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#yxjwsbmmwh .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#yxjwsbmmwh .gt_title {
+  color: #FFFFFF;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#yxjwsbmmwh .gt_subtitle {
+  color: #FFFFFF;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#yxjwsbmmwh .gt_heading {
+  background-color: #9A8C98;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#yxjwsbmmwh .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yxjwsbmmwh .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#yxjwsbmmwh .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#yxjwsbmmwh .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#yxjwsbmmwh .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#yxjwsbmmwh .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#yxjwsbmmwh .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#yxjwsbmmwh .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#yxjwsbmmwh .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bolder;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#yxjwsbmmwh .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: bolder;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#yxjwsbmmwh .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#yxjwsbmmwh .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#yxjwsbmmwh .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#yxjwsbmmwh .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yxjwsbmmwh .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#yxjwsbmmwh .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#yxjwsbmmwh .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#yxjwsbmmwh .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yxjwsbmmwh .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#yxjwsbmmwh .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#yxjwsbmmwh .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yxjwsbmmwh .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yxjwsbmmwh .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#yxjwsbmmwh .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yxjwsbmmwh .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#yxjwsbmmwh .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yxjwsbmmwh .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#yxjwsbmmwh .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yxjwsbmmwh .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#yxjwsbmmwh .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yxjwsbmmwh .gt_left {
+  text-align: left;
+}
+
+#yxjwsbmmwh .gt_center {
+  text-align: center;
+}
+
+#yxjwsbmmwh .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#yxjwsbmmwh .gt_font_normal {
+  font-weight: normal;
+}
+
+#yxjwsbmmwh .gt_font_bold {
+  font-weight: bold;
+}
+
+#yxjwsbmmwh .gt_font_italic {
+  font-style: italic;
+}
+
+#yxjwsbmmwh .gt_super {
+  font-size: 65%;
+}
+
+#yxjwsbmmwh .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#yxjwsbmmwh .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#yxjwsbmmwh .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#yxjwsbmmwh .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#yxjwsbmmwh .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#yxjwsbmmwh .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#yxjwsbmmwh .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border"><strong>Niveles de medición</strong></th>
+</tr>
+<tr class="odd gt_col_headings">
+<th id="Nivel" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Nivel</th>
+<th id="Definición" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Definición</th>
+<th id="Ejemplo" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Ejemplo</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="nivel_medicion" style="font-weight: bold">Nominal</td>
+<td class="gt_row gt_left" headers="definicion">Se caracteriza por datos que consisten exclusivamente en nombres, etiquetas o categorías. Los datos no se pueden acomodar en un esquema de orden (como del más bajo al más alto).</td>
+<td class="gt_row gt_left" headers="ejemplo">Estado civil Color de ojos</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="nivel_medicion" style="font-weight: bold">Ordinal</td>
+<td class="gt_row gt_left" headers="definicion">Las categorías están ordenadas, pero no hay diferencias o estas carecen de significado.</td>
+<td class="gt_row gt_left" headers="ejemplo">Nivel educativo</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="nivel_medicion" style="font-weight: bold">De intervalo</td>
+<td class="gt_row gt_left" headers="definicion">Las diferencias tienen un significado, pero no hay punto de partida cero natural, y las razones no tienen significado.</td>
+<td class="gt_row gt_left" headers="ejemplo">temperaturas en grados Fahrenheit o Celsius</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="nivel_medicion" style="font-weight: bold">De razón</td>
+<td class="gt_row gt_left" headers="definicion">Hay un punto de partida cero natural y las razones tienen significado.</td>
+<td class="gt_row gt_left" headers="ejemplo">Altura Peso</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="consigne-las-principales-propiedades-de-la-distribución-normal" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="consigne-las-principales-propiedades-de-la-distribución-normal"><span class="header-section-number">1.3</span> Consigne las principales propiedades de la distribución normal</h2>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[0.4, 0.6]">
+<div class="quarto-layout-row">
+<div id="firstcol" class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: flex-start;">
+<p><br> <span class="math display">{X \sim  N(\mu,\sigma)}</span></p>
+</div>
+<div id="secondcol" class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: flex-start;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>La distribución normal tiene las siguientes características clave:</p>
+<ul>
+<li><p>Simetría: Es simétrica alrededor de la media (<span class="math inline">\mu</span>), lo que significa que las colas izquierda y derecha de la distribución son idénticas.</p></li>
+<li><p>Unimodal: Tiene un solo pico en la media (<span class="math inline">\mu</span>).</p></li>
+<li><p>Forma de Campana: La función de densidad de probabilidad forma una curva en forma de campana.</p></li>
+<li><p>Regla Empírica: Aproximadamente el 68% de los datos caen dentro de una desviación estándar de la media, el 95% dentro de dos desviaciones estándar y el 99.7% dentro de tres desviaciones estándar.</p></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Cuando se grafica, una distribución normal tiene la forma de “campana”. Las características de la curva en forma de campana son:</p>
 <ol type="1">
-<li><p>Consigne las definiciones de Población, muestra y unidad de análisis</p></li>
-<li><p>Consigne, defina y ejemplifique los niveles de medición de Stevens</p></li>
-<li><p>Consigne las principales propiedades de la distribución normal</p></li>
-<li><p>Concepto y elementos constitutivos de las pruebas de hipótesis</p></li>
+<li>el aumento de las frecuencias, las cuales alcanzan un punto máximo y luego disminuyen; y</li>
+<li>la simetría, donde la mitad izquierda de la gráfica es casi una imagen especular de la mitad derecha.</li>
 </ol>
+</section>
+<section id="concepto-y-elementos-constitutivos-de-las-pruebas-de-hipótesis" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="concepto-y-elementos-constitutivos-de-las-pruebas-de-hipótesis"><span class="header-section-number">1.4</span> Concepto y elementos constitutivos de las pruebas de hipótesis</h2>
+</section>
 </section>
 <section id="segunda-parte-evaluación-práctica" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Segunda parte: Evaluación práctica</h1>
@@ -96,37 +745,1331 @@ ul.task-list li input[type="checkbox"] {
 <li>Para cada una de las preguntas definir:</li>
 </ol>
 <ol type="a">
-<li><p>La/las variables que contienen información a analizar estadísticamente.</p></li>
+<li><p>Las variables que contienen información a analizar estadísticamente.</p></li>
 <li><p>Identificar, para cada una de ellas el nivel de medición y las modalidades/categorías que la integran.</p></li>
 </ol>
 </section>
 <section id="tercera-parte-análisis-estadístico-descriptivo" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Tercera parte: Análisis estadístico descriptivo</h1>
 <p>En esta actividad se trabajará con el archivo de datos “cuestionario.xlsx”.</p>
-<ol type="1">
-<li><p>Importar los datos a R.</p></li>
-<li><p>Utilizando la función table() y sus funciones anexas, calcular</p></li>
-</ol>
-<ol type="a">
-<li><p>Las tablas de frecuencias absolutas para las variables ocio, genero, colegio, amor, religión</p></li>
-<li><p>Las tablas de frecuencias relativas para las variables ocio, genero, colegio, amor, religión</p></li>
-</ol>
-<ol start="3" type="1">
-<li>Realizar gráficos de barras para cada una de las variables anteriores</li>
-</ol>
-<ol type="a">
-<li><p>Con la frecuencia relativa</p></li>
-<li><p>Con la frecuencia porcentual</p></li>
-</ol>
-<ol start="4" type="1">
-<li>Calcular las tablas de contingencia para los siguientes cruces de variables</li>
-</ol>
-<ol type="a">
-<li>Ocio y genero</li>
-<li>Ocio y colegio</li>
-<li>Amor y religión</li>
-<li>Colegio y religión</li>
-</ol>
+<section id="importar-los-datos-a-r." class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="importar-los-datos-a-r."><span class="header-section-number">3.1</span> Importar los datos a R.</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>cuestionario <span class="ot">&lt;-</span> openxlsx<span class="sc">::</span><span class="fu">read.xlsx</span>(<span class="st">"EVALUACION/cuestionario.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="utilizando-la-función-table-y-sus-funciones-anexas-calcular" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="utilizando-la-función-table-y-sus-funciones-anexas-calcular"><span class="header-section-number">3.2</span> Utilizando la función table() y sus funciones anexas, calcular</h2>
+<section id="las-tablas-de-frecuencias-absolutas-para-las-variables-ocio-genero-colegio-amor-religión" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="las-tablas-de-frecuencias-absolutas-para-las-variables-ocio-genero-colegio-amor-religión"><span class="header-section-number">3.2.1</span> Las tablas de frecuencias absolutas para las variables ocio, genero, colegio, amor, religión</h3>
+<section id="ocio" class="level4" data-number="3.2.1.1">
+<h4 data-number="3.2.1.1" class="anchored" data-anchor-id="ocio"><span class="header-section-number">3.2.1.1</span> Ocio</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>ocio,<span class="at">useNA =</span> <span class="st">"always"</span>)) <span class="sc">%&gt;%</span> <span class="fu">kbl</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Var1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;">28</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">166</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">109</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">169</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">32</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sum</td>
+<td style="text-align: right;">717</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</section>
+<section id="género" class="level4" data-number="3.2.1.2">
+<h4 data-number="3.2.1.2" class="anchored" data-anchor-id="género"><span class="header-section-number">3.2.1.2</span> Género</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>genero,<span class="at">useNA =</span> <span class="st">"always"</span>)) <span class="sc">%&gt;%</span> <span class="fu">kbl</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Var1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">346</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">371</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sum</td>
+<td style="text-align: right;">717</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</section>
+<section id="colegio" class="level4" data-number="3.2.1.3">
+<h4 data-number="3.2.1.3" class="anchored" data-anchor-id="colegio"><span class="header-section-number">3.2.1.3</span> Colegio</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>colegio,<span class="at">useNA =</span> <span class="st">"always"</span>)) <span class="sc">%&gt;%</span> <span class="fu">kbl</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Var1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">475</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">59</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">180</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sum</td>
+<td style="text-align: right;">717</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</section>
+<section id="amor" class="level4" data-number="3.2.1.4">
+<h4 data-number="3.2.1.4" class="anchored" data-anchor-id="amor"><span class="header-section-number">3.2.1.4</span> Amor</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>amor,<span class="at">useNA =</span> <span class="st">"always"</span>)) <span class="sc">%&gt;%</span> <span class="fu">kbl</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Var1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;">68</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">294</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">138</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">149</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">68</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sum</td>
+<td style="text-align: right;">717</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</section>
+<section id="religión" class="level4" data-number="3.2.1.5">
+<h4 data-number="3.2.1.5" class="anchored" data-anchor-id="religión"><span class="header-section-number">3.2.1.5</span> Religión</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>religion,<span class="at">useNA =</span> <span class="st">"always"</span>)) <span class="sc">%&gt;%</span> <span class="fu">kbl</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Var1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">177</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">317</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">108</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">99</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">99999</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sum</td>
+<td style="text-align: right;">717</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="las-tablas-de-frecuencias-relativas-para-las-variables-ocio-genero-colegio-amor-religión" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="las-tablas-de-frecuencias-relativas-para-las-variables-ocio-genero-colegio-amor-religión"><span class="header-section-number">3.2.2</span> Las tablas de frecuencias relativas para las variables ocio, genero, colegio, amor, religión</h3>
+<section id="ocio-1" class="level4" data-number="3.2.2.1">
+<h4 data-number="3.2.2.1" class="anchored" data-anchor-id="ocio-1"><span class="header-section-number">3.2.2.1</span> Ocio</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>ocio))<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Var1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;">3.90516</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">27.19665</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">23.15202</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">15.20223</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">23.57043</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">4.46304</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">2.51046</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</section>
+<section id="género-1" class="level4" data-number="3.2.2.2">
+<h4 data-number="3.2.2.2" class="anchored" data-anchor-id="género-1"><span class="header-section-number">3.2.2.2</span> género</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>genero))<span class="sc">*</span><span class="dv">100</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Var1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">48.25662</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">51.74338</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</section>
+<section id="colegio-1" class="level4" data-number="3.2.2.3">
+<h4 data-number="3.2.2.3" class="anchored" data-anchor-id="colegio-1"><span class="header-section-number">3.2.2.3</span> colegio</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>colegio))<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Var1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;">0.418410</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">66.248257</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">8.228731</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">25.104602</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</section>
+<section id="amor-1" class="level4" data-number="3.2.2.4">
+<h4 data-number="3.2.2.4" class="anchored" data-anchor-id="amor-1"><span class="header-section-number">3.2.2.4</span> amor</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>amor))<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Var1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;">9.483961</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">41.004184</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">19.246862</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">20.781032</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">9.483961</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</section>
+<section id="religión-1" class="level4" data-number="3.2.2.5">
+<h4 data-number="3.2.2.5" class="anchored" data-anchor-id="religión-1"><span class="header-section-number">3.2.2.5</span> religión</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>religion))<span class="sc">*</span><span class="dv">100</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Var1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">24.6861925</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">44.2119944</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">1.6736402</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">15.0627615</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">13.8075314</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">99999</td>
+<td style="text-align: right;">0.5578801</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="realizar-gráficos-de-barras-para-cada-una-de-las-variables-anteriores" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="realizar-gráficos-de-barras-para-cada-una-de-las-variables-anteriores"><span class="header-section-number">3.3</span> Realizar gráficos de barras para cada una de las variables anteriores</h2>
+<pre><code>a.  Con la frecuencia relativa
+
+b.  Con la frecuencia porcentual</code></pre>
+<section id="gráfico-1-frecuencia-absoluta-y-porcentual-por-variable-género" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="gráfico-1-frecuencia-absoluta-y-porcentual-por-variable-género"><span class="header-section-number">3.3.1</span> Gráfico 1: frecuencia absoluta y porcentual por variable género</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>genero),</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"frecuencia absoluta por género"</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">"género"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">"frecuencia absoluta"</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="st">"#386641"</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="st">"#386641"</span>,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">density=</span><span class="dv">100</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>genero))<span class="sc">*</span><span class="dv">100</span>,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"frecuencia porcentual por género"</span>,</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">"género"</span>,</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">"frecuencia porcentual"</span>,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="st">"#003554"</span>,</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="st">"#003554"</span>,</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">density=</span><span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="gráfico-2-frecuencia-absoluta-y-porcentual-por-variable-ocio" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="gráfico-2-frecuencia-absoluta-y-porcentual-por-variable-ocio"><span class="header-section-number">3.3.2</span> Gráfico 2: frecuencia absoluta y porcentual por variable ocio</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>ocio),</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"frecuencia absoluta por ocio"</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">"ocio"</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">"frecuencia absoluta"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="st">"#386641"</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="st">"#386641"</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">density=</span><span class="dv">100</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>ocio))<span class="sc">*</span><span class="dv">100</span>,</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"frecuencia porcentual por ocio"</span>,</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">"ocio"</span>,</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">"frecuencia porcentual"</span>,</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="st">"#003554"</span>,</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="st">"#003554"</span>,</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">density=</span><span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="gráfico-3-frecuencia-absoluta-y-porcentual-por-variable-amor" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="gráfico-3-frecuencia-absoluta-y-porcentual-por-variable-amor"><span class="header-section-number">3.3.3</span> Gráfico 3: frecuencia absoluta y porcentual por variable amor</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>amor),</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"frecuencia absoluta por amor"</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">"amor"</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">"frecuencia absoluta"</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="st">"#386641"</span>,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="st">"#386641"</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">density=</span><span class="dv">100</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>amor))<span class="sc">*</span><span class="dv">100</span>,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"frecuencia porcentual por amor"</span>,</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">"amor"</span>,</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">"frecuencia porcentual"</span>,</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="st">"#003554"</span>,</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="st">"#003554"</span>,</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">density=</span><span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="gráfico-4-frecuencia-absoluta-y-porcentual-por-variable-colegio" class="level3" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="gráfico-4-frecuencia-absoluta-y-porcentual-por-variable-colegio"><span class="header-section-number">3.3.4</span> Gráfico 4: frecuencia absoluta y porcentual por variable colegio</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>colegio),</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"frecuencia absoluta por colegio"</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">"colegio"</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">"frecuencia absoluta"</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="st">"#386641"</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="st">"#386641"</span>,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">density=</span><span class="dv">100</span>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>colegio))<span class="sc">*</span><span class="dv">100</span>,</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"frecuencia porcentual por colegio"</span>,</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">"colegio"</span>,</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">"frecuencia porcentual"</span>,</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="st">"#003554"</span>,</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="st">"#003554"</span>,</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">density=</span><span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="gráfico-5-frecuencia-absoluta-y-porcentual-por-variable-religión" class="level3" data-number="3.3.5">
+<h3 data-number="3.3.5" class="anchored" data-anchor-id="gráfico-5-frecuencia-absoluta-y-porcentual-por-variable-religión"><span class="header-section-number">3.3.5</span> Gráfico 5: frecuencia absoluta y porcentual por variable religión</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>religion),</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"frecuencia absoluta por religion"</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">"religion"</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">"frecuencia absoluta"</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="st">"#386641"</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="st">"#386641"</span>,</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">density=</span><span class="dv">100</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>religion))<span class="sc">*</span><span class="dv">100</span>,</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"frecuencia porcentual por religion"</span>,</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">"religion"</span>,</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">"frecuencia porcentual"</span>,</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="st">"#003554"</span>,</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="st">"#003554"</span>,</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">density=</span><span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="calcular-las-tablas-de-contingencia-para-los-siguientes-cruces-de-variables" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="calcular-las-tablas-de-contingencia-para-los-siguientes-cruces-de-variables"><span class="header-section-number">3.4</span> Calcular las tablas de contingencia para los siguientes cruces de variables</h2>
+<section id="ocio-y-genero" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="ocio-y-genero"><span class="header-section-number">3.4.1</span> Ocio y genero</h3>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># absoluta</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>ocio, cuestionario<span class="sc">$</span>genero,<span class="at">useNA =</span> <span class="st">"always"</span>)) <span class="sc">%&gt;%</span> <span class="fu">kbl</span>()</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># relativa</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>ocio, cuestionario<span class="sc">$</span>genero))<span class="sc">*</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="quarto-layout-panel" data-layout="[0.5, 0.5]">
+<div class="quarto-layout-row">
+<div id="firstcol" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">NA</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">28</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">111</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">130</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">166</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">109</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">117</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">169</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">32</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sum</td>
+<td style="text-align: right;">346</td>
+<td style="text-align: right;">371</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">717</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</div>
+<div id="secondcol" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>   
+             1          2
+     1.8131102  2.0920502
+  1 11.7154812 15.4811715
+  2 18.1311018  5.0209205
+  3  5.2998605  9.9023710
+  4  7.2524407 16.3179916
+  5  3.2078103  1.2552301
+  6  0.8368201  1.6736402</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ocio-y-colegio" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="ocio-y-colegio"><span class="header-section-number">3.4.2</span> Ocio y colegio</h3>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># absoluta</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>ocio, cuestionario<span class="sc">$</span>colegio,<span class="at">useNA =</span> <span class="st">"always"</span>)) <span class="sc">%&gt;%</span> <span class="fu">kbl</span>()</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># relativa</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>ocio, cuestionario<span class="sc">$</span>colegio))<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="quarto-layout-panel" data-layout="[0.5, 0.5]">
+<div class="quarto-layout-row">
+<div id="firstcol" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">3</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">NA</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">28</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">135</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">195</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">112</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">166</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">109</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">106</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">169</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">32</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sum</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">475</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">180</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">717</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</div>
+<div id="secondcol" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;">0.00000</td>
+<td style="text-align: right;">2.510460</td>
+<td style="text-align: right;">0.27894</td>
+<td style="text-align: right;">1.1157601</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">0.13947</td>
+<td style="text-align: right;">18.828452</td>
+<td style="text-align: right;">1.53417</td>
+<td style="text-align: right;">6.6945607</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">0.13947</td>
+<td style="text-align: right;">15.620642</td>
+<td style="text-align: right;">2.64993</td>
+<td style="text-align: right;">4.7419805</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">0.00000</td>
+<td style="text-align: right;">9.762901</td>
+<td style="text-align: right;">1.67364</td>
+<td style="text-align: right;">3.7656904</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">0.13947</td>
+<td style="text-align: right;">14.783822</td>
+<td style="text-align: right;">1.81311</td>
+<td style="text-align: right;">6.8340307</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">0.00000</td>
+<td style="text-align: right;">3.207810</td>
+<td style="text-align: right;">0.13947</td>
+<td style="text-align: right;">1.1157601</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">0.00000</td>
+<td style="text-align: right;">1.534170</td>
+<td style="text-align: right;">0.13947</td>
+<td style="text-align: right;">0.8368201</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="amor-y-religión" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="amor-y-religión"><span class="header-section-number">3.4.3</span> Amor y religión</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># absoluta</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>amor, cuestionario<span class="sc">$</span>religion,<span class="at">useNA =</span> <span class="st">"always"</span>)) <span class="sc">%&gt;%</span> <span class="fu">kbl</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">3</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">4</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">5</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">99999</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">NA</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">68</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">149</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">294</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">138</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">149</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">68</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sum</td>
+<td style="text-align: right;">177</td>
+<td style="text-align: right;">317</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">717</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># relativa</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>amor, cuestionario<span class="sc">$</span>religion))<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">3</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">4</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">5</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">99999</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;">1.952580</td>
+<td style="text-align: right;">2.370990</td>
+<td style="text-align: right;">0.41841</td>
+<td style="text-align: right;">2.231520</td>
+<td style="text-align: right;">2.23152</td>
+<td style="text-align: right;">0.27894</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">9.762901</td>
+<td style="text-align: right;">20.781032</td>
+<td style="text-align: right;">0.27894</td>
+<td style="text-align: right;">5.578801</td>
+<td style="text-align: right;">4.46304</td>
+<td style="text-align: right;">0.13947</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">4.463040</td>
+<td style="text-align: right;">8.926081</td>
+<td style="text-align: right;">0.41841</td>
+<td style="text-align: right;">2.370990</td>
+<td style="text-align: right;">2.92887</td>
+<td style="text-align: right;">0.13947</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">5.578801</td>
+<td style="text-align: right;">8.786611</td>
+<td style="text-align: right;">0.41841</td>
+<td style="text-align: right;">3.068340</td>
+<td style="text-align: right;">2.92887</td>
+<td style="text-align: right;">0.00000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">2.928870</td>
+<td style="text-align: right;">3.347280</td>
+<td style="text-align: right;">0.13947</td>
+<td style="text-align: right;">1.813110</td>
+<td style="text-align: right;">1.25523</td>
+<td style="text-align: right;">0.00000</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</section>
+<section id="colegio-y-religión" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="colegio-y-religión"><span class="header-section-number">3.4.4</span> Colegio y religión</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># absoluta</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>colegio, cuestionario<span class="sc">$</span>religion,<span class="at">useNA =</span> <span class="st">"always"</span>)) <span class="sc">%&gt;%</span> <span class="fu">kbl</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">3</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">4</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">5</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">99999</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">NA</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">114</td>
+<td style="text-align: right;">225</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">475</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">59</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">180</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sum</td>
+<td style="text-align: right;">177</td>
+<td style="text-align: right;">317</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">717</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># relativa</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(cuestionario<span class="sc">$</span>colegio, cuestionario<span class="sc">$</span>religion))<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">1</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">2</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">3</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">4</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">5</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">99999</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;">0.139470</td>
+<td style="text-align: right;">0.27894</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.000000</td>
+<td style="text-align: right;">0.000000</td>
+<td style="text-align: right;">0.00000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">15.899582</td>
+<td style="text-align: right;">31.38075</td>
+<td style="text-align: right;">0.9762901</td>
+<td style="text-align: right;">8.926081</td>
+<td style="text-align: right;">8.647141</td>
+<td style="text-align: right;">0.41841</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">1.813110</td>
+<td style="text-align: right;">2.09205</td>
+<td style="text-align: right;">0.4184100</td>
+<td style="text-align: right;">2.510460</td>
+<td style="text-align: right;">1.394700</td>
+<td style="text-align: right;">0.00000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">6.834031</td>
+<td style="text-align: right;">10.46025</td>
+<td style="text-align: right;">0.2789400</td>
+<td style="text-align: right;">3.626220</td>
+<td style="text-align: right;">3.765690</td>
+<td style="text-align: right;">0.13947</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 <section id="cuarta-parte-contrastes-de-hipótesis" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Cuarta parte: Contrastes de hipótesis</h1>
@@ -138,7 +2081,13 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 </section>
 
-</main>
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>https://drive.google.com/file/d/1WLEdjR0WAI9UFv178iBQv4nhLVa8V_DX/view<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
