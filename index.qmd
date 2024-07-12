@@ -221,13 +221,15 @@ g1 <- barplot(table(cuestionario$genero),
         ylab="frecuencia absoluta",
         border="#386641",
         col="#386641",
-        density=100)
+        density=100,
+        ylim= c(0, 400))
+
 text(x = g1, 
      y = table(cuestionario$genero), 
      label = table(cuestionario$genero), 
-     pos = 1, 
+     pos = 3, 
      cex = 0.8, 
-     col = "white")
+     col = "black")
 
 
 p1 <- round(prop.table(table(cuestionario$genero))*100,2)
@@ -238,14 +240,15 @@ g2 <- barplot(p1,
         ylab="frecuencia porcentual",
         border="#003554",
         col="#003554",
-        density=80)
+        density=80,
+ylim =  c(0,60))
 
 text(x = g2, 
      y = p1,
      label = p1,
-     pos = 1, 
+     pos = 3, 
      cex = 0.8, 
-     col = "white")
+     col = "black")
 
 
 
@@ -258,39 +261,41 @@ text(x = g2,
 
 par(mfrow = c(1, 2))
 
-g2 <- barplot(table(cuestionario$ocio),
+g3 <- barplot(table(cuestionario$ocio),
         main="frecuencia absoluta por ocio",
         xlab="ocio",
         ylab="frecuencia absoluta",
         border="#386641",
         col="#386641",
-        density=100)
+        density=100,
+        ylim =  c(0,250))
 
 
-text(x = g2, 
+text(x = g3, 
      y = table(cuestionario$ocio), 
      label = table(cuestionario$ocio), 
-     pos = 1, 
+     pos = 3, 
      cex = 0.8, 
-     col = "white")
+     col = "black")
 
 
 p2 <- round(prop.table(table(cuestionario$ocio))*100,2)
 
-barplot(p2,
+g4 <- barplot(p2,
         main="frecuencia porcentual por ocio",
         xlab="ocio",
         ylab="frecuencia porcentual",
         border="#003554",
         col="#003554",
-        density=80)
+        density=80, 
+        ylim =  c(0,35))
 
-text(x = g2, 
+text(x = g4, 
      y = p2, 
      label = p2, 
-     pos = 1, 
+     pos = 3, 
      cex = 0.8, 
-     col = "white")
+     col = "black")
 
 
 ```
@@ -301,38 +306,40 @@ text(x = g2,
 
 par(mfrow = c(1, 2))
 
-g3 <- barplot(table(cuestionario$amor),
+g5 <- barplot(table(cuestionario$amor),
         main="frecuencia absoluta por amor",
         xlab="amor",
         ylab="frecuencia absoluta",
         border="#386641",
         col="#386641",
-        density=100)
+        density=100,
+        ylim=c(0, 350))
 
-text(x = g3, 
+text(x = g5, 
      y = table(cuestionario$amor), 
      label = table(cuestionario$amor), 
-     pos = 1, 
+     pos = 3, 
      cex = 0.8, 
-     col = "white")
+     col = "black")
 
 
 p3 <- round(prop.table(table(cuestionario$amor))*100,2)
 
-barplot(p3,
+g6 <- barplot(p3,
         main="frecuencia porcentual por amor",
         xlab="amor",
         ylab="frecuencia porcentual",
         border="#003554",
         col="#003554",
-        density=80)
+        density=80, 
+        ylim=c(0, 50))
 
-text(x = g3, 
+text(x = g6, 
      y = p3, 
      label = p3, 
-     pos = 1, 
+     pos = 3, 
      cex = 0.8, 
-     col = "white")
+     col = "black")
 
 ```
 
@@ -344,38 +351,40 @@ text(x = g3,
 
 par(mfrow = c(1, 2))
 
-g4 <- barplot(table(cuestionario$colegio),
+g7 <- barplot(table(cuestionario$colegio),
         main="frecuencia absoluta por colegio",
         xlab="colegio",
         ylab="frecuencia absoluta",
         border="#386641",
         col="#386641",
-        density=100)
+        density=100,
+        ylim =  c(0,600))
 
-text(x = g4, 
+text(x = g7, 
      y = table(cuestionario$colegio), 
      label = table(cuestionario$colegio), 
-     pos = 1, 
+     pos = 3, 
      cex = 0.8, 
-     col = "white")
+     col = "black")
 
 
 p4 <- round(prop.table(table(cuestionario$colegio))*100,2)
 
-barplot(p4,
+g8 <- barplot(p4,
         main="frecuencia porcentual por colegio",
         xlab="colegio",
         ylab="frecuencia porcentual",
         border="#003554",
         col="#003554",
-        density=80)
+        density=80,
+        ylim =  c(0,80))
 
-text(x = g4, 
+text(x = g8, 
      y = p4, 
      label = p4, 
-     pos = 1, 
+     pos = 3, 
      cex = 0.8, 
-     col = "white")
+     col = "black")
 
 
 
@@ -387,38 +396,40 @@ text(x = g4,
 
 par(mfrow = c(1, 2))
 
-g5 <- barplot(table(cuestionario$religion),
+g9 <- barplot(table(cuestionario$religion),
         main="frecuencia absoluta por religion",
         xlab="religion",
         ylab="frecuencia absoluta",
         border="#386641",
         col="#386641",
-        density=100)
+        density=100,
+ylim = c(0,350))
 
-text(x = g5, 
+text(x = g9, 
      y = table(cuestionario$religion), 
      label = table(cuestionario$religion), 
-     pos = 1, 
+     pos = 3, 
      cex = 0.8, 
-     col = "white")
+     col = "black")
 
 
 p5 <- round(prop.table(table(cuestionario$religion))*100,2)
 
-barplot(prop.table(table(cuestionario$religion))*100,
+g10 <- barplot(prop.table(table(cuestionario$religion))*100,
         main="frecuencia porcentual por religion",
         xlab="religion",
         ylab="frecuencia porcentual",
         border="#003554",
         col="#003554",
-        density=80)
+        density=80,
+ylim = c(0,50))
 
-text(x = g5, 
+text(x = g10, 
      y = p5, 
      label = p5, 
-     pos = 1, 
+     pos = 3, 
      cex = 0.8, 
-     col = "white")
+     col = "black")
 
 
 
