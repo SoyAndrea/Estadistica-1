@@ -110,24 +110,6 @@ La distribución normal tiene las siguientes características clave:
 
 - Regla Empírica: Aproximadamente el 68% de los datos caen dentro de una desviación estándar de la media, el 95% dentro de dos desviaciones estándar y el 99.7% dentro de tres desviaciones estándar. 
 
-```{r}
-#| echo: false
-
-# Media y desviación típica
-mu <- 25
-sigma <- 5
-
-# Grid para una distribución normal no estándar
-x <- seq(-3, 3, length = 100) * sigma + mu
-
-# Función de densidad
-f <- dnorm(x, mu, sigma)
-
-plot(x, f, type = "l", lwd = 2, col = "blue", ylab = "", xlab = "X")
-abline(v = mu) # Línea vertical en la media
-
-```
-
 
 Cuando se grafica, una distribución normal tiene la forma de “campana”. Las características de la curva en forma de campana son: 
 
@@ -195,38 +177,36 @@ addmargins(table(cuestionario$religion,useNA = "always")) %>% kbl()
 #### Ocio
 
 ```{r}
-kbl(prop.table(table(cuestionario$ocio))*100)
+kbl(round(prop.table(table(cuestionario$ocio))*100,2))
 ```
 
 #### género
 
 ```{r}
-kbl(prop.table(table(cuestionario$genero))*100) 
+kbl(round(prop.table(table(cuestionario$genero))*100,2))
 ```
 
 
 #### colegio
 ```{r}
-kbl(prop.table(table(cuestionario$colegio))*100)
+kbl(round(prop.table(table(cuestionario$colegio))*100,2))
 ```
 
 #### amor
 ```{r}
-kbl(prop.table(table(cuestionario$amor))*100)
+kbl(round(prop.table(table(cuestionario$amor))*100,2))
 ```
 
 #### religión
 
 ```{r}
-kbl(prop.table(table(cuestionario$religion))*100) 
-
+kbl(round(prop.table(table(cuestionario$religion))*100,2))
 ```
 
 
 ##  Realizar gráficos de barras para cada una de las variables anteriores
 
     a.  Con la frecuencia relativa
-
     b.  Con la frecuencia porcentual
     
 ### Gráfico 1: frecuencia absoluta y porcentual por variable género
@@ -235,21 +215,37 @@ kbl(prop.table(table(cuestionario$religion))*100)
 
 par(mfrow = c(1, 2))
 
-barplot(table(cuestionario$genero),
+g1 <- barplot(table(cuestionario$genero),
         main="frecuencia absoluta por género",
         xlab="género",
         ylab="frecuencia absoluta",
         border="#386641",
         col="#386641",
         density=100)
+text(x = g1, 
+     y = table(cuestionario$genero), 
+     label = table(cuestionario$genero), 
+     pos = 1, 
+     cex = 0.8, 
+     col = "white")
 
-barplot(prop.table(table(cuestionario$genero))*100,
+
+p1 <- round(prop.table(table(cuestionario$genero))*100,2)
+
+g2 <- barplot(p1,
         main="frecuencia porcentual por género",
         xlab="género",
         ylab="frecuencia porcentual",
         border="#003554",
         col="#003554",
         density=80)
+
+text(x = g2, 
+     y = p1,
+     label = p1,
+     pos = 1, 
+     cex = 0.8, 
+     col = "white")
 
 
 
@@ -262,7 +258,7 @@ barplot(prop.table(table(cuestionario$genero))*100,
 
 par(mfrow = c(1, 2))
 
-barplot(table(cuestionario$ocio),
+g2 <- barplot(table(cuestionario$ocio),
         main="frecuencia absoluta por ocio",
         xlab="ocio",
         ylab="frecuencia absoluta",
@@ -270,7 +266,18 @@ barplot(table(cuestionario$ocio),
         col="#386641",
         density=100)
 
-barplot(prop.table(table(cuestionario$ocio))*100,
+
+text(x = g2, 
+     y = table(cuestionario$ocio), 
+     label = table(cuestionario$ocio), 
+     pos = 1, 
+     cex = 0.8, 
+     col = "white")
+
+
+p2 <- round(prop.table(table(cuestionario$ocio))*100,2)
+
+barplot(p2,
         main="frecuencia porcentual por ocio",
         xlab="ocio",
         ylab="frecuencia porcentual",
@@ -278,6 +285,12 @@ barplot(prop.table(table(cuestionario$ocio))*100,
         col="#003554",
         density=80)
 
+text(x = g2, 
+     y = p2, 
+     label = p2, 
+     pos = 1, 
+     cex = 0.8, 
+     col = "white")
 
 
 ```
@@ -288,7 +301,7 @@ barplot(prop.table(table(cuestionario$ocio))*100,
 
 par(mfrow = c(1, 2))
 
-barplot(table(cuestionario$amor),
+g3 <- barplot(table(cuestionario$amor),
         main="frecuencia absoluta por amor",
         xlab="amor",
         ylab="frecuencia absoluta",
@@ -296,7 +309,17 @@ barplot(table(cuestionario$amor),
         col="#386641",
         density=100)
 
-barplot(prop.table(table(cuestionario$amor))*100,
+text(x = g3, 
+     y = table(cuestionario$amor), 
+     label = table(cuestionario$amor), 
+     pos = 1, 
+     cex = 0.8, 
+     col = "white")
+
+
+p3 <- round(prop.table(table(cuestionario$amor))*100,2)
+
+barplot(p3,
         main="frecuencia porcentual por amor",
         xlab="amor",
         ylab="frecuencia porcentual",
@@ -304,7 +327,12 @@ barplot(prop.table(table(cuestionario$amor))*100,
         col="#003554",
         density=80)
 
-
+text(x = g3, 
+     y = p3, 
+     label = p3, 
+     pos = 1, 
+     cex = 0.8, 
+     col = "white")
 
 ```
 
@@ -316,7 +344,7 @@ barplot(prop.table(table(cuestionario$amor))*100,
 
 par(mfrow = c(1, 2))
 
-barplot(table(cuestionario$colegio),
+g4 <- barplot(table(cuestionario$colegio),
         main="frecuencia absoluta por colegio",
         xlab="colegio",
         ylab="frecuencia absoluta",
@@ -324,13 +352,30 @@ barplot(table(cuestionario$colegio),
         col="#386641",
         density=100)
 
-barplot(prop.table(table(cuestionario$colegio))*100,
+text(x = g4, 
+     y = table(cuestionario$colegio), 
+     label = table(cuestionario$colegio), 
+     pos = 1, 
+     cex = 0.8, 
+     col = "white")
+
+
+p4 <- round(prop.table(table(cuestionario$colegio))*100,2)
+
+barplot(p4,
         main="frecuencia porcentual por colegio",
         xlab="colegio",
         ylab="frecuencia porcentual",
         border="#003554",
         col="#003554",
         density=80)
+
+text(x = g4, 
+     y = p4, 
+     label = p4, 
+     pos = 1, 
+     cex = 0.8, 
+     col = "white")
 
 
 
@@ -342,13 +387,23 @@ barplot(prop.table(table(cuestionario$colegio))*100,
 
 par(mfrow = c(1, 2))
 
-barplot(table(cuestionario$religion),
+g5 <- barplot(table(cuestionario$religion),
         main="frecuencia absoluta por religion",
         xlab="religion",
         ylab="frecuencia absoluta",
         border="#386641",
         col="#386641",
         density=100)
+
+text(x = g5, 
+     y = table(cuestionario$religion), 
+     label = table(cuestionario$religion), 
+     pos = 1, 
+     cex = 0.8, 
+     col = "white")
+
+
+p5 <- round(prop.table(table(cuestionario$religion))*100,2)
 
 barplot(prop.table(table(cuestionario$religion))*100,
         main="frecuencia porcentual por religion",
@@ -357,6 +412,14 @@ barplot(prop.table(table(cuestionario$religion))*100,
         border="#003554",
         col="#003554",
         density=80)
+
+text(x = g5, 
+     y = p5, 
+     label = p5, 
+     pos = 1, 
+     cex = 0.8, 
+     col = "white")
+
 
 
 
@@ -382,7 +445,7 @@ addmargins(table(cuestionario$ocio, cuestionario$genero,useNA = "always")) %>% k
 
 ```{r}
 # relativa
-prop.table(table(cuestionario$ocio, cuestionario$genero))*100
+kbl(round(prop.table(table(cuestionario$ocio, cuestionario$genero))*100,2))
 
 ```
 
@@ -409,7 +472,7 @@ addmargins(table(cuestionario$ocio, cuestionario$colegio,useNA = "always")) %>% 
 
 ```{r}
 # relativa
-kbl(prop.table(table(cuestionario$ocio, cuestionario$colegio))*100)
+kbl(round(prop.table(table(cuestionario$ocio, cuestionario$colegio))*100,2))
 
 ```
 
@@ -425,7 +488,7 @@ kbl(prop.table(table(cuestionario$ocio, cuestionario$colegio))*100)
 addmargins(table(cuestionario$amor, cuestionario$religion,useNA = "always")) %>% kbl()
 
 # relativa
-kbl(prop.table(table(cuestionario$amor, cuestionario$religion))*100)
+kbl(round(prop.table(table(cuestionario$amor, cuestionario$religion))*100,2))
 
 ```
 
@@ -439,7 +502,7 @@ kbl(prop.table(table(cuestionario$amor, cuestionario$religion))*100)
 addmargins(table(cuestionario$colegio, cuestionario$religion,useNA = "always")) %>% kbl()
 
 # relativa
-kbl(prop.table(table(cuestionario$colegio, cuestionario$religion))*100)
+kbl(round(prop.table(table(cuestionario$colegio, cuestionario$religion))*100,2))
 
 ```
 
