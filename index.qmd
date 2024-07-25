@@ -4,6 +4,8 @@ author: "Andrea Gomez Vargas"
 toc: true
 number-sections: true
 #highlight-style: pygments
+language: 
+  title-block-author-single: "Estudiante"
 format:
    html: 
     #theme: flatly
@@ -415,7 +417,7 @@ text(x = g9,
 
 p5 <- round(prop.table(table(cuestionario$religion))*100,2)
 
-g10 <- barplot(prop.table(table(cuestionario$religion))*100,
+g10 <- barplot(p5,
         main="frecuencia porcentual por religion",
         xlab="religion",
         ylab="frecuencia porcentual",
