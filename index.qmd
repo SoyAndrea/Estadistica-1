@@ -8,7 +8,7 @@ language:
   title-block-author-single: "Estudiante"
 format:
    html: 
-    #theme: flatly
+    theme: flatly
     code-fold: true
     html-math-method: katex
     df-print: kable
@@ -27,15 +27,14 @@ format:
 #| include: false
 
 library(gt)
+library(gtExtras)
 library(kableExtra)
 library(tidyverse)
 ```
 
-## Consigne las definiciones de Población, muestra y unidad de análisis[^1]
+## Consigne las definiciones de Población, muestra y unidad de análisis
 
-[^1]: https://drive.google.com/file/d/1WLEdjR0WAI9UFv178iBQv4nhLVa8V_DX/view
-
--   **Población:** es un conjunto de *todos* los elementos que estamos estudiando, acerca de los cuales intentamos sacar conclusiones. Debemos definir esa población de modo que quede claro cuándo cierto elemento pertenece o no a la población.
+-   **Población:** es un conjunto de *todos* los elementos que estamos estudiando, acerca de los cuales intentamos sacar conclusiones. Debemos definir esa población de modo que quede claro cuándo cierto elemento pertenece o no a la población.[^1]
 
 -   **Muestra:** Colección de algunos elementos —no todos—, de la población bajo estudio, utilizada para describir poblaciones.
 
@@ -43,16 +42,18 @@ library(tidyverse)
 
 -   **Unidad de Análisis:** o la unidad de estudio u objeto/sujeto de estudio (los elementos que van a ser estudiados), mientras que la unidad de recolección es la fuente proveedora de la información requerida, son los elementos que funcionan como informantes
 
-##  Consigne, defina y ejemplifique los niveles de medición de Stevens
+[^1]: [Levin, Richard I. y Rubin, David S. Estadística para Administración y Economía, México, 2004](https://drive.google.com/file/d/1WLEdjR0WAI9UFv178iBQv4nhLVa8V_DX/view)
+
+## Consigne, defina y ejemplifique los niveles de medición de Stevens
 
 ```{r}
 #| echo: false
-tabla_1 <- openxlsx::read.xlsx("tablas.xlsx") 
+tabla_1 <- openxlsx::read.xlsx("tablas.xlsx", sheet = "1") 
 
 
 gt(tabla_1) %>%
   tab_header(
-    title = md("**Niveles de medición**")) %>%
+    title = md("**Tabla 1: niveles de medición**")) %>%
   tab_options(
     heading.align = "left",
     row_group.font.weight = "bolder",
@@ -66,19 +67,22 @@ gt(tabla_1) %>%
       columns = nivel_medicion))
 ```
 
-
 ## Consigne las principales propiedades de la distribución normal
 
-:::: {layout="[0.4, 0.6]"}
+La distribución normal, también conocida como **distribución gaussiana o curva de campana**, es una de las distribuciones de probabilidad más importantes en estadística.
 
-:::{#firstcol}
+::: {layout="[0.4, 0.6]"}
+::: {#firstcol}
+<br> $${X \sim  N(\mu,\sigma)}$$
 
-<br>
-$${X \sim  N(\mu,\sigma)}$$
+donde:
+
+-   ($X$) es la variable aleatoria
+-   ($\mu$) es la media (promedio) de la distribución.
+-   ($\sigma$) es la desviación estándar, que mide la dispersión de los datos.
 :::
 
-:::{#secondcol}
-
+::: {#secondcol}
 ```{r}
 #| echo: false
 
@@ -96,85 +100,106 @@ plot(x, f, type = "l", lwd = 2, col = "blue", ylab = "", xlab = "X")
 abline(v = mu) # Línea vertical en la media
 
 ```
-
+:::
 :::
 
-::::
+Esta distribución tiene las siguientes características clave:
 
+-   Simetría: Es simétrica alrededor de la media ($\mu$), lo que significa que las colas izquierda y derecha de la distribución son idénticas.
 
-La distribución normal tiene las siguientes características clave:
+-   Unimodal: Tiene un solo pico en la media ($\mu$) (punto por el que pasa el eje de simetría).
 
-- Simetría: Es simétrica alrededor de la media ($\mu$), lo que significa que las colas izquierda y derecha de la distribución son idénticas.
+-   Forma de Campana: La función de densidad de probabilidad forma una curva en forma de campana.
 
-- Unimodal: Tiene un solo pico en la media ($\mu$).
+-   Regla Empírica: Aproximadamente el 68% de los datos caen dentro de una desviación estándar de la media, el 95% dentro de dos desviaciones estándar y el 99.7% dentro de tres desviaciones estándar.
 
-- Forma de Campana: La función de densidad de probabilidad forma una curva en forma de campana.
+-   El área bajo la curva es igual a 1
 
-- Regla Empírica: Aproximadamente el 68% de los datos caen dentro de una desviación estándar de la media, el 95% dentro de dos desviaciones estándar y el 99.7% dentro de tres desviaciones estándar. 
+-   La desviación estándar ($\sigma$) es la distancia entre el eje de simetría y el punto donde cambia la curvatura.
 
-
-Cuando se grafica, una distribución normal tiene la forma de “campana”. Las características de la curva en forma de campana son: 
-
-  1. el aumento de las frecuencias, las cuales alcanzan un punto máximo y luego disminuyen; y 
-  2. la simetría, donde la mitad izquierda de la gráfica es casi una imagen especular de la mitad derecha.
-
-##  Concepto y elementos constitutivos de las pruebas de hipótesis
+## Concepto y elementos constitutivos de las pruebas de hipótesis
 
 # Segunda parte: Evaluación práctica
 
 Se ha realizado una encuesta a jóvenes españoles en el año 2000. Se muestran a continuación las 16 preguntas que contenía el cuestionario.
 
-1.  Para cada una de las preguntas definir:
+## Para cada una de las preguntas definir:
 
+```         
 a.  Las variables que contienen información a analizar estadísticamente.
 
-
-
 b.  Identificar, para cada una de ellas el nivel de medición y las modalidades/categorías que la integran.
+```
+
+```{r}
+#| echo: false
+tabla_2 <- openxlsx::read.xlsx("tablas.xlsx", sheet = "2") %>% 
+  group_by(eje) %>% select(-1) %>% 
+gt() %>% 
+  tab_header(
+    title = md("**Tabla 2: variables cuestionario**")) %>% 
+   # gt_merge_stack(
+   #          col1 = variables,
+   #          col2 = nivel
+   #          #col2 = categorias
+   #          ) %>%
+  cols_label(
+    pregunta = "Pregunta", variables = "Variables", categorias =  "Categorías",
+    nivel = "Nivel de medición"
+  ) %>% 
+   tab_options(
+    heading.align = "left",
+    row_group.font.weight = "bolder",
+    heading.background.color = "#9a8c98")
+
+tabla_2
+```
 
 # Tercera parte: Análisis estadístico descriptivo
 
 En esta actividad se trabajará con el archivo de datos “cuestionario.xlsx”.
 
-##  Importar los datos a R.
+## Importar los datos a R.
 
 ```{r}
 cuestionario <- openxlsx::read.xlsx("EVALUACION/cuestionario.xlsx")
 ```
 
+## Utilizando la función table() y sus funciones anexas, calcular
 
-##  Utilizando la función table() y sus funciones anexas, calcular
+### Las tablas de frecuencias absolutas para las variables ocio, genero, colegio, amor, religión
 
-###  Las tablas de frecuencias absolutas para las variables ocio, genero, colegio, amor, religión
+#### Ocio
 
-#### Ocio 
 ```{r}
 addmargins(table(cuestionario$ocio,useNA = "always")) %>% kbl()
 ```
 
-  
 #### Género
+
 ```{r}
 addmargins(table(cuestionario$genero,useNA = "always")) %>% kbl()
 ```
 
 #### Colegio
+
 ```{r}
 addmargins(table(cuestionario$colegio,useNA = "always")) %>% kbl()
 ```
 
 #### Amor
+
 ```{r}
 addmargins(table(cuestionario$amor,useNA = "always")) %>% kbl()
 ```
 
 #### Religión
+
 ```{r}
 addmargins(table(cuestionario$religion,useNA = "always")) %>% kbl()
 ```
 
-
-###  Las tablas de frecuencias relativas para las variables ocio, genero, colegio, amor, religión
+### Las tablas de frecuencias relativas para las variables ocio, genero, colegio, amor, religión
 
 #### Ocio
 
@@ -188,13 +213,14 @@ kbl(round(prop.table(table(cuestionario$ocio))*100,2))
 kbl(round(prop.table(table(cuestionario$genero))*100,2))
 ```
 
-
 #### colegio
+
 ```{r}
 kbl(round(prop.table(table(cuestionario$colegio))*100,2))
 ```
 
 #### amor
+
 ```{r}
 kbl(round(prop.table(table(cuestionario$amor))*100,2))
 ```
@@ -205,12 +231,13 @@ kbl(round(prop.table(table(cuestionario$amor))*100,2))
 kbl(round(prop.table(table(cuestionario$religion))*100,2))
 ```
 
+## Realizar gráficos de barras para cada una de las variables anteriores
 
-##  Realizar gráficos de barras para cada una de las variables anteriores
+```         
+a.  Con la frecuencia relativa
+b.  Con la frecuencia porcentual
+```
 
-    a.  Con la frecuencia relativa
-    b.  Con la frecuencia porcentual
-    
 ### Gráfico 1: frecuencia absoluta y porcentual por variable género
 
 ```{r}
@@ -255,7 +282,6 @@ text(x = g2,
 
 
 ```
-
 
 ### Gráfico 2: frecuencia absoluta y porcentual por variable ocio
 
@@ -344,8 +370,6 @@ text(x = g6,
      col = "black")
 
 ```
-
-
 
 ### Gráfico 4: frecuencia absoluta y porcentual por variable colegio
 
@@ -438,23 +462,21 @@ text(x = g10,
 
 ```
 
-
 ## Calcular las tablas de contingencia para los siguientes cruces de variables
 
 ### Ocio y genero
 
-:::: {layout="[0.5, 0.5]"}
-
-:::{#firstcol}
+::: {layout="[0.5, 0.5]"}
+<div>
 
 ```{r}
 # absoluta
 addmargins(table(cuestionario$ocio, cuestionario$genero,useNA = "always")) %>% kbl()
 ```
 
-:::
+</div>
 
-:::{#secondcol}
+<div>
 
 ```{r}
 # relativa
@@ -462,26 +484,22 @@ kbl(round(prop.table(table(cuestionario$ocio, cuestionario$genero))*100,2))
 
 ```
 
-
+</div>
 :::
-
-::::
-
 
 ### Ocio y colegio
 
-:::: {layout="[0.5, 0.5]"}
-
-:::{#firstcol}
+::: {layout="[0.5, 0.5]"}
+<div>
 
 ```{r}
 # absoluta
 addmargins(table(cuestionario$ocio, cuestionario$colegio,useNA = "always")) %>% kbl()
 ```
 
-:::
+</div>
 
-:::{#secondcol}
+<div>
 
 ```{r}
 # relativa
@@ -489,12 +507,10 @@ kbl(round(prop.table(table(cuestionario$ocio, cuestionario$colegio))*100,2))
 
 ```
 
+</div>
 :::
 
-::::
-
 ### Amor y religión
-
 
 ```{r}
 # absoluta
@@ -505,10 +521,7 @@ kbl(round(prop.table(table(cuestionario$amor, cuestionario$religion))*100,2))
 
 ```
 
-
-
 ### Colegio y religión
-
 
 ```{r}
 # absoluta
@@ -518,7 +531,6 @@ addmargins(table(cuestionario$colegio, cuestionario$religion,useNA = "always")) 
 kbl(round(prop.table(table(cuestionario$colegio, cuestionario$religion))*100,2))
 
 ```
-
 
 # Cuarta parte: Contrastes de hipótesis
 
