@@ -134,6 +134,9 @@ El funcionamiento de esta técnica inferencial se basa en la realización de una
 
 -  **Error tipo I**
 
+
+- **Nivel de significación**
+
 # Segunda parte: Evaluación práctica
 
 Se ha realizado una encuesta a jóvenes españoles en el año 2000. Se muestran a continuación las 16 preguntas que contenía el cuestionario.
