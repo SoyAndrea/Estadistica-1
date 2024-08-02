@@ -1,6 +1,8 @@
 ---
-title: "Estadística 1"
+title: "Estadística 1 - trabajo final"
+subtitle: "Maestría en Generación y Análisis de Información Estadística - UNTREF"
 author: "Andrea Gomez Vargas"
+date: "08/02/2024"
 toc: true
 number-sections: true
 #highlight-style: pygments
@@ -12,11 +14,6 @@ format:
     code-fold: true
     html-math-method: katex
     df-print: kable
-   pdf:
-    geometry: 
-      - top=30mm
-      - left=30mm
-   docx: default
 ---
 
 # Primera parte: Evaluación conceptual y teórica
@@ -35,6 +32,7 @@ library(haven)
 library(readxl)
 library(rstatix)
 library(ggpubr)
+library(patchwork)
 ```
 
 ## Consigne las definiciones de Población, muestra y unidad de análisis
@@ -1426,7 +1424,7 @@ text(x = g_a4,
 g_a5 <- barplot(
         table(cuestionario$amor, cuestionario$religion),
         beside = T,
-        main="frecuencia absoluta situación vincular/afectiva según autodefinición religiosa",
+        main="frecuencia absoluta situación vincular/afectiva según \nautodefinición religiosa",
         xlab="autodefinición religiosa",
         ylab="casos",
         border=paleta4,
@@ -1457,7 +1455,7 @@ p33 <- round(prop.table(table(cuestionario$amor, cuestionario$religion))*100,2)
 
 g_a6 <- barplot(p33,
                 beside = T,
-        main="frecuencia porcentual situación vincular/afectiva según autodefinición religiosa",
+        main="frecuencia porcentual situación vincular/afectiva según \nautodefinición religiosa",
         xlab="autodefinición religiosa",
         ylab="porcentaje",
         border= paleta4,
@@ -1574,6 +1572,9 @@ boxplot(cuestionario$horas, na.action = NULL,
         varwidth = F, outline=T, col="#ef798a")
 ```
 
+
+> De las horas semanales destinadas al tiempo libre, el valor máximo destinado de horas es de 49 con un mediana de 20 horas y una media de 21. 
+
 #### tv
 
 ```{r}
@@ -1586,27 +1587,37 @@ boxplot(cuestionario$tv,
         varwidth = F, outline=T, col="#2a9d8f")
 ```
 
+> De las horas semanales dedicadas a ver televisión, la mediana es de 10 horas semanales y una media de 11 con un valor extremo de dedicación de 44 horas y un valor mínimo de 1. 
 
 #### hijos1
 
 ```{r}
-boxplot(cuestionario$hijos1, na.action = NULL,
-        xlab = "cantidad",
-        main="cantidad de hijos que creé va a tener", 
+
+par(mfrow = c(1, 2))
+
+cuestionario$Cantidad = 1
+ag <- aggregate(Cantidad ~ hijos1, cuestionario, sum)
+
+barplot(ag$Cantidad ~ ag$hijos1, 
+     main="cantidad de hijos que \ncreé va a tener", 
+     xlab="cantidad hijos",
+     ylab= " ",
+     col="#52b69a",
+     ylim= c(0, 400),
+     las=1)
+
+boxplot(cuestionario$hijos1, 
+        na.action = NULL,
+        xlab = "cantidad hijos",
+        main="cantidad de hijos que \ncreé va a tener", 
         ann = T, 
         horizontal = TRUE,
-        varwidth = F, outline=T, col="#ffbe0b")
+        varwidth = F, outline=T, col="#52b69a")
 
-hist(cuestionario$hijos1, 
-     main="cantidad de hijos que creé va a tener", 
-     xlab="cantidad",
-     freq=F,
-     col="#ffbe0b",
-     las=1, 
-     breaks=10)
-
-lines(density(cuestionario$hijos1, na.rm=T))
 ```
+
+
+> De los encuestados,  la mediana de respuesta de cuantos hijos creeé que va a tener es 2, compartiendo la misma media y con un valor máximo de 5.
 
 #### hijos2
 
@@ -1618,9 +1629,10 @@ boxplot(cuestionario$hijos2, na.action = NULL,
         horizontal = TRUE,
         varwidth = F, outline=T, col="#588157")
 ```
+> De los encuestados,  la mediana de respuesta de cuantos hijos que le gustaría llegar a tener es 2, compartiendo una media similar de 2.3 y con un valor máximo de 5.
+
 
 #### libros
-
 
 ```{r}
 boxplot(cuestionario$libros, na.action = NULL,
@@ -1630,6 +1642,9 @@ boxplot(cuestionario$libros, na.action = NULL,
         horizontal = TRUE,
         varwidth = F, outline=T, col="#457b9d")
 ```
+
+
+> De la cantidad de libros leídos en 12 meses, la cantidad máxima superior al quartil es de 40 por año y valor mínmo es de 1 libro por año, la mediana es de 5 libros por año y el promedio de la muestra por 7 libros al año
 
 #### ingreso1
 
@@ -1643,6 +1658,8 @@ boxplot(cuestionario$ingreso1, na.action = NULL,
         varwidth = F, outline=T, col="#fe7f2d")
 ```
 
+> Del tipo de ingreso personal la mediana de la muestra es 0 y la media corresponde a un 27.630, con varios outliers llegando a un valor máximo de 450.  
+
 #### ingreso2
 
 
@@ -1655,6 +1672,9 @@ boxplot(cuestionario$ingreso2, na.action = NULL,
         varwidth = F, outline=T, col="#fe7f2d")
 ```
 
+> Del tipo de ingreso de la pareja la mediana de la muestra es 0, más del 95% de respuesta se ubica en este valor, es decir no recibe ingreso por la pareja. Y la media corresponde a un 7.529, inferior al tipo de ingreso personal, con varios outliers llegando a un valor máximo de 380.  
+
+
 #### ingreso3
 
 ```{r}
@@ -1665,6 +1685,10 @@ boxplot(cuestionario$ingreso3, na.action = NULL,
         horizontal = TRUE,
         varwidth = F, outline=T, col= "#fe7f2d")
 ```
+
+> Del tipo de ingreso por aportaciones familiares, el valor máximo de ingreso es de 250 con una mediana de 12 y mediana de 19.01, de los valores extremos los rangos vacilan entre más de 50 a 250.
+
+
 
 #### edad
 
@@ -1677,6 +1701,10 @@ boxplot(cuestionario$edad, na.action = NULL,
         horizontal = TRUE,
         varwidth = F, outline=T, col="#ef798a")
 ```
+
+
+> El rango de edad de años cumplidos en el último año, la edad mínima es de 17 y la máxima de 29, con una mediana de 22 años de los encuestados
+
 
 # Cuarta parte: Contrastes de hipótesis
 

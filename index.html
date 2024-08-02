@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andrea Gomez Vargas">
+<meta name="dcterms.date" content="2024-08-02">
 
-<title>Estadística 1</title>
+<title>Estadística 1 - trabajo final</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -212,13 +213,14 @@ window.Quarto = {
   <li><a href="#situación-2" id="toc-situación-2" class="nav-link" data-scroll-target="#situación-2"><span class="header-section-number">4.2</span> Situación 2</a></li>
   </ul></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="index.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+</nav>
 </div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Estadística 1</h1>
+<h1 class="title">Estadística 1 - trabajo final</h1>
+<p class="subtitle lead">Maestría en Generación y Análisis de Información Estadística - UNTREF</p>
 </div>
 
 
@@ -232,6 +234,12 @@ window.Quarto = {
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 2, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -255,7 +263,8 @@ window.Quarto = {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <section id="consigne-las-definiciones-de-población-muestra-y-unidad-de-análisis" class="level2" data-number="1.1">
@@ -271,23 +280,23 @@ window.Quarto = {
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<div id="ionjxzrxnt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ionjxzrxnt table {
+<div id="ohldrwupqk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ohldrwupqk table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ionjxzrxnt thead, #ionjxzrxnt tbody, #ionjxzrxnt tfoot, #ionjxzrxnt tr, #ionjxzrxnt td, #ionjxzrxnt th {
+#ohldrwupqk thead, #ohldrwupqk tbody, #ohldrwupqk tfoot, #ohldrwupqk tr, #ohldrwupqk td, #ohldrwupqk th {
   border-style: none;
 }
 
-#ionjxzrxnt p {
+#ohldrwupqk p {
   margin: 0;
   padding: 0;
 }
 
-#ionjxzrxnt .gt_table {
+#ohldrwupqk .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -313,12 +322,12 @@ window.Quarto = {
   border-left-color: #D3D3D3;
 }
 
-#ionjxzrxnt .gt_caption {
+#ohldrwupqk .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ionjxzrxnt .gt_title {
+#ohldrwupqk .gt_title {
   color: #FFFFFF;
   font-size: 125%;
   font-weight: initial;
@@ -330,7 +339,7 @@ window.Quarto = {
   border-bottom-width: 0;
 }
 
-#ionjxzrxnt .gt_subtitle {
+#ohldrwupqk .gt_subtitle {
   color: #FFFFFF;
   font-size: 85%;
   font-weight: initial;
@@ -342,7 +351,7 @@ window.Quarto = {
   border-top-width: 0;
 }
 
-#ionjxzrxnt .gt_heading {
+#ohldrwupqk .gt_heading {
   background-color: #9A8C98;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -354,13 +363,13 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#ionjxzrxnt .gt_bottom_border {
+#ohldrwupqk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ionjxzrxnt .gt_col_headings {
+#ohldrwupqk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -375,7 +384,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#ionjxzrxnt .gt_col_heading {
+#ohldrwupqk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -395,7 +404,7 @@ window.Quarto = {
   overflow-x: hidden;
 }
 
-#ionjxzrxnt .gt_column_spanner_outer {
+#ohldrwupqk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -407,15 +416,15 @@ window.Quarto = {
   padding-right: 4px;
 }
 
-#ionjxzrxnt .gt_column_spanner_outer:first-child {
+#ohldrwupqk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ionjxzrxnt .gt_column_spanner_outer:last-child {
+#ohldrwupqk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ionjxzrxnt .gt_column_spanner {
+#ohldrwupqk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -427,11 +436,11 @@ window.Quarto = {
   width: 100%;
 }
 
-#ionjxzrxnt .gt_spanner_row {
+#ohldrwupqk .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ionjxzrxnt .gt_group_heading {
+#ohldrwupqk .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -457,7 +466,7 @@ window.Quarto = {
   text-align: left;
 }
 
-#ionjxzrxnt .gt_empty_group_heading {
+#ohldrwupqk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -472,15 +481,15 @@ window.Quarto = {
   vertical-align: middle;
 }
 
-#ionjxzrxnt .gt_from_md > :first-child {
+#ohldrwupqk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ionjxzrxnt .gt_from_md > :last-child {
+#ohldrwupqk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ionjxzrxnt .gt_row {
+#ohldrwupqk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -499,7 +508,7 @@ window.Quarto = {
   overflow-x: hidden;
 }
 
-#ionjxzrxnt .gt_stub {
+#ohldrwupqk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -512,7 +521,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#ionjxzrxnt .gt_stub_row_group {
+#ohldrwupqk .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -526,15 +535,15 @@ window.Quarto = {
   vertical-align: top;
 }
 
-#ionjxzrxnt .gt_row_group_first td {
+#ohldrwupqk .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ionjxzrxnt .gt_row_group_first th {
+#ohldrwupqk .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ionjxzrxnt .gt_summary_row {
+#ohldrwupqk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -544,16 +553,16 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#ionjxzrxnt .gt_first_summary_row {
+#ohldrwupqk .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ionjxzrxnt .gt_first_summary_row.thick {
+#ohldrwupqk .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ionjxzrxnt .gt_last_summary_row {
+#ohldrwupqk .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -563,7 +572,7 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#ionjxzrxnt .gt_grand_summary_row {
+#ohldrwupqk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -573,7 +582,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#ionjxzrxnt .gt_first_grand_summary_row {
+#ohldrwupqk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -583,7 +592,7 @@ window.Quarto = {
   border-top-color: #D3D3D3;
 }
 
-#ionjxzrxnt .gt_last_grand_summary_row_top {
+#ohldrwupqk .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -593,11 +602,11 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#ionjxzrxnt .gt_striped {
+#ohldrwupqk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ionjxzrxnt .gt_table_body {
+#ohldrwupqk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -606,7 +615,7 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#ionjxzrxnt .gt_footnotes {
+#ohldrwupqk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -620,7 +629,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#ionjxzrxnt .gt_footnote {
+#ohldrwupqk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -629,7 +638,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#ionjxzrxnt .gt_sourcenotes {
+#ohldrwupqk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -643,7 +652,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#ionjxzrxnt .gt_sourcenote {
+#ohldrwupqk .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -651,63 +660,63 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#ionjxzrxnt .gt_left {
+#ohldrwupqk .gt_left {
   text-align: left;
 }
 
-#ionjxzrxnt .gt_center {
+#ohldrwupqk .gt_center {
   text-align: center;
 }
 
-#ionjxzrxnt .gt_right {
+#ohldrwupqk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ionjxzrxnt .gt_font_normal {
+#ohldrwupqk .gt_font_normal {
   font-weight: normal;
 }
 
-#ionjxzrxnt .gt_font_bold {
+#ohldrwupqk .gt_font_bold {
   font-weight: bold;
 }
 
-#ionjxzrxnt .gt_font_italic {
+#ohldrwupqk .gt_font_italic {
   font-style: italic;
 }
 
-#ionjxzrxnt .gt_super {
+#ohldrwupqk .gt_super {
   font-size: 65%;
 }
 
-#ionjxzrxnt .gt_footnote_marks {
+#ohldrwupqk .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ionjxzrxnt .gt_asterisk {
+#ohldrwupqk .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ionjxzrxnt .gt_indent_1 {
+#ohldrwupqk .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ionjxzrxnt .gt_indent_2 {
+#ohldrwupqk .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ionjxzrxnt .gt_indent_3 {
+#ohldrwupqk .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ionjxzrxnt .gt_indent_4 {
+#ohldrwupqk .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ionjxzrxnt .gt_indent_5 {
+#ohldrwupqk .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -829,23 +838,23 @@ window.Quarto = {
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<div id="pcgutkveuv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pcgutkveuv table {
+<div id="vxofuhaoys" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#vxofuhaoys table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#pcgutkveuv thead, #pcgutkveuv tbody, #pcgutkveuv tfoot, #pcgutkveuv tr, #pcgutkveuv td, #pcgutkveuv th {
+#vxofuhaoys thead, #vxofuhaoys tbody, #vxofuhaoys tfoot, #vxofuhaoys tr, #vxofuhaoys td, #vxofuhaoys th {
   border-style: none;
 }
 
-#pcgutkveuv p {
+#vxofuhaoys p {
   margin: 0;
   padding: 0;
 }
 
-#pcgutkveuv .gt_table {
+#vxofuhaoys .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -871,12 +880,12 @@ window.Quarto = {
   border-left-color: #D3D3D3;
 }
 
-#pcgutkveuv .gt_caption {
+#vxofuhaoys .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pcgutkveuv .gt_title {
+#vxofuhaoys .gt_title {
   color: #FFFFFF;
   font-size: 125%;
   font-weight: initial;
@@ -888,7 +897,7 @@ window.Quarto = {
   border-bottom-width: 0;
 }
 
-#pcgutkveuv .gt_subtitle {
+#vxofuhaoys .gt_subtitle {
   color: #FFFFFF;
   font-size: 85%;
   font-weight: initial;
@@ -900,7 +909,7 @@ window.Quarto = {
   border-top-width: 0;
 }
 
-#pcgutkveuv .gt_heading {
+#vxofuhaoys .gt_heading {
   background-color: #9A8C98;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -912,13 +921,13 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#pcgutkveuv .gt_bottom_border {
+#vxofuhaoys .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pcgutkveuv .gt_col_headings {
+#vxofuhaoys .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -933,7 +942,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#pcgutkveuv .gt_col_heading {
+#vxofuhaoys .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -953,7 +962,7 @@ window.Quarto = {
   overflow-x: hidden;
 }
 
-#pcgutkveuv .gt_column_spanner_outer {
+#vxofuhaoys .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -965,15 +974,15 @@ window.Quarto = {
   padding-right: 4px;
 }
 
-#pcgutkveuv .gt_column_spanner_outer:first-child {
+#vxofuhaoys .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pcgutkveuv .gt_column_spanner_outer:last-child {
+#vxofuhaoys .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pcgutkveuv .gt_column_spanner {
+#vxofuhaoys .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -985,11 +994,11 @@ window.Quarto = {
   width: 100%;
 }
 
-#pcgutkveuv .gt_spanner_row {
+#vxofuhaoys .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#pcgutkveuv .gt_group_heading {
+#vxofuhaoys .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1015,7 +1024,7 @@ window.Quarto = {
   text-align: left;
 }
 
-#pcgutkveuv .gt_empty_group_heading {
+#vxofuhaoys .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1030,15 +1039,15 @@ window.Quarto = {
   vertical-align: middle;
 }
 
-#pcgutkveuv .gt_from_md > :first-child {
+#vxofuhaoys .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pcgutkveuv .gt_from_md > :last-child {
+#vxofuhaoys .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pcgutkveuv .gt_row {
+#vxofuhaoys .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1057,7 +1066,7 @@ window.Quarto = {
   overflow-x: hidden;
 }
 
-#pcgutkveuv .gt_stub {
+#vxofuhaoys .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1070,7 +1079,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#pcgutkveuv .gt_stub_row_group {
+#vxofuhaoys .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1084,15 +1093,15 @@ window.Quarto = {
   vertical-align: top;
 }
 
-#pcgutkveuv .gt_row_group_first td {
+#vxofuhaoys .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pcgutkveuv .gt_row_group_first th {
+#vxofuhaoys .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#pcgutkveuv .gt_summary_row {
+#vxofuhaoys .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1102,16 +1111,16 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#pcgutkveuv .gt_first_summary_row {
+#vxofuhaoys .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pcgutkveuv .gt_first_summary_row.thick {
+#vxofuhaoys .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pcgutkveuv .gt_last_summary_row {
+#vxofuhaoys .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1121,7 +1130,7 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#pcgutkveuv .gt_grand_summary_row {
+#vxofuhaoys .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1131,7 +1140,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#pcgutkveuv .gt_first_grand_summary_row {
+#vxofuhaoys .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1141,7 +1150,7 @@ window.Quarto = {
   border-top-color: #D3D3D3;
 }
 
-#pcgutkveuv .gt_last_grand_summary_row_top {
+#vxofuhaoys .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1151,11 +1160,11 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#pcgutkveuv .gt_striped {
+#vxofuhaoys .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pcgutkveuv .gt_table_body {
+#vxofuhaoys .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1164,7 +1173,7 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#pcgutkveuv .gt_footnotes {
+#vxofuhaoys .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1178,7 +1187,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#pcgutkveuv .gt_footnote {
+#vxofuhaoys .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1187,7 +1196,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#pcgutkveuv .gt_sourcenotes {
+#vxofuhaoys .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1201,7 +1210,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#pcgutkveuv .gt_sourcenote {
+#vxofuhaoys .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1209,63 +1218,63 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#pcgutkveuv .gt_left {
+#vxofuhaoys .gt_left {
   text-align: left;
 }
 
-#pcgutkveuv .gt_center {
+#vxofuhaoys .gt_center {
   text-align: center;
 }
 
-#pcgutkveuv .gt_right {
+#vxofuhaoys .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pcgutkveuv .gt_font_normal {
+#vxofuhaoys .gt_font_normal {
   font-weight: normal;
 }
 
-#pcgutkveuv .gt_font_bold {
+#vxofuhaoys .gt_font_bold {
   font-weight: bold;
 }
 
-#pcgutkveuv .gt_font_italic {
+#vxofuhaoys .gt_font_italic {
   font-style: italic;
 }
 
-#pcgutkveuv .gt_super {
+#vxofuhaoys .gt_super {
   font-size: 65%;
 }
 
-#pcgutkveuv .gt_footnote_marks {
+#vxofuhaoys .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#pcgutkveuv .gt_asterisk {
+#vxofuhaoys .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pcgutkveuv .gt_indent_1 {
+#vxofuhaoys .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pcgutkveuv .gt_indent_2 {
+#vxofuhaoys .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pcgutkveuv .gt_indent_3 {
+#vxofuhaoys .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pcgutkveuv .gt_indent_4 {
+#vxofuhaoys .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pcgutkveuv .gt_indent_5 {
+#vxofuhaoys .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -4528,7 +4537,7 @@ b.  Con la frecuencia porcentual</code></pre>
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>g_a5 <span class="ot">&lt;-</span> <span class="fu">barplot</span>(</span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">table</span>(cuestionario<span class="sc">$</span>amor, cuestionario<span class="sc">$</span>religion),</span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">beside =</span> T,</span>
-<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"frecuencia absoluta situación vincular/afectiva según autodefinición religiosa"</span>,</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"frecuencia absoluta situación vincular/afectiva según </span><span class="sc">\n</span><span class="st">autodefinición religiosa"</span>,</span>
 <span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">"autodefinición religiosa"</span>,</span>
 <span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">"casos"</span>,</span>
 <span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span>paleta4,</span>
@@ -4567,7 +4576,7 @@ b.  Con la frecuencia porcentual</code></pre>
 <span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>g_a6 <span class="ot">&lt;-</span> <span class="fu">barplot</span>(p33,</span>
 <span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">beside =</span> T,</span>
-<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"frecuencia porcentual situación vincular/afectiva según autodefinición religiosa"</span>,</span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"frecuencia porcentual situación vincular/afectiva según </span><span class="sc">\n</span><span class="st">autodefinición religiosa"</span>,</span>
 <span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">"autodefinición religiosa"</span>,</span>
 <span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">"porcentaje"</span>,</span>
 <span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span> paleta4,</span>
@@ -4848,6 +4857,9 @@ b.  Con la frecuencia porcentual</code></pre>
 </div>
 </div>
 </div>
+<blockquote class="blockquote">
+<p>De las horas semanales destinadas al tiempo libre, el valor máximo destinado de horas es de 49 con un mediana de 20 horas y una media de 21.</p>
+</blockquote>
 </section>
 <section id="tv" class="level4" data-number="3.12.2.2">
 <h4 data-number="3.12.2.2" class="anchored" data-anchor-id="tv"><span class="header-section-number">3.12.2.2</span> tv</h4>
@@ -4870,18 +4882,35 @@ b.  Con la frecuencia porcentual</code></pre>
 </div>
 </div>
 </div>
+<blockquote class="blockquote">
+<p>De las horas semanales dedicadas a ver televisión, la mediana es de 10 horas semanales y una media de 11 con un valor extremo de dedicación de 44 horas y un valor mínimo de 1.</p>
+</blockquote>
 </section>
 <section id="hijos1" class="level4" data-number="3.12.2.3">
 <h4 data-number="3.12.2.3" class="anchored" data-anchor-id="hijos1"><span class="header-section-number">3.12.2.3</span> hijos1</h4>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(cuestionario<span class="sc">$</span>hijos1, <span class="at">na.action =</span> <span class="cn">NULL</span>,</span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"cantidad"</span>,</span>
-<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"cantidad de hijos que creé va a tener"</span>, </span>
-<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ann =</span> T, </span>
-<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">varwidth =</span> F, <span class="at">outline=</span>T, <span class="at">col=</span><span class="st">"#ffbe0b"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>cuestionario<span class="sc">$</span>Cantidad <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>ag <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(Cantidad <span class="sc">~</span> hijos1, cuestionario, sum)</span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(ag<span class="sc">$</span>Cantidad <span class="sc">~</span> ag<span class="sc">$</span>hijos1, </span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">"cantidad de hijos que </span><span class="sc">\n</span><span class="st">creé va a tener"</span>, </span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"cantidad hijos"</span>,</span>
+<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span> <span class="st">" "</span>,</span>
+<span id="cb66-10"><a href="#cb66-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span><span class="st">"#52b69a"</span>,</span>
+<span id="cb66-11"><a href="#cb66-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">400</span>),</span>
+<span id="cb66-12"><a href="#cb66-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">las=</span><span class="dv">1</span>)</span>
+<span id="cb66-13"><a href="#cb66-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-14"><a href="#cb66-14" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(cuestionario<span class="sc">$</span>hijos1, </span>
+<span id="cb66-15"><a href="#cb66-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">na.action =</span> <span class="cn">NULL</span>,</span>
+<span id="cb66-16"><a href="#cb66-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"cantidad hijos"</span>,</span>
+<span id="cb66-17"><a href="#cb66-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"cantidad de hijos que </span><span class="sc">\n</span><span class="st">creé va a tener"</span>, </span>
+<span id="cb66-18"><a href="#cb66-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">ann =</span> T, </span>
+<span id="cb66-19"><a href="#cb66-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb66-20"><a href="#cb66-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">varwidth =</span> F, <span class="at">outline=</span>T, <span class="at">col=</span><span class="st">"#52b69a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -4890,38 +4919,22 @@ b.  Con la frecuencia porcentual</code></pre>
 </figure>
 </div>
 </div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(cuestionario<span class="sc">$</span>hijos1, </span>
-<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">"cantidad de hijos que creé va a tener"</span>, </span>
-<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"cantidad"</span>,</span>
-<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">freq=</span>F,</span>
-<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">col=</span><span class="st">"#ffbe0b"</span>,</span>
-<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">las=</span><span class="dv">1</span>, </span>
-<span id="cb67-7"><a href="#cb67-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks=</span><span class="dv">10</span>)</span>
-<span id="cb67-8"><a href="#cb67-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-9"><a href="#cb67-9" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(cuestionario<span class="sc">$</span>hijos1, <span class="at">na.rm=</span>T))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-71-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
 </div>
-</div>
-</div>
+<blockquote class="blockquote">
+<p>De los encuestados, la mediana de respuesta de cuantos hijos creeé que va a tener es 2, compartiendo la misma media y con un valor máximo de 5.</p>
+</blockquote>
 </section>
 <section id="hijos2" class="level4" data-number="3.12.2.4">
 <h4 data-number="3.12.2.4" class="anchored" data-anchor-id="hijos2"><span class="header-section-number">3.12.2.4</span> hijos2</h4>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(cuestionario<span class="sc">$</span>hijos2, <span class="at">na.action =</span> <span class="cn">NULL</span>,</span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"cantidad"</span>,</span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"cantidad de hijos que le gustaría llegar a tener"</span>, </span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ann =</span> T, </span>
-<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">varwidth =</span> F, <span class="at">outline=</span>T, <span class="at">col=</span><span class="st">"#588157"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(cuestionario<span class="sc">$</span>hijos2, <span class="at">na.action =</span> <span class="cn">NULL</span>,</span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"cantidad"</span>,</span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"cantidad de hijos que le gustaría llegar a tener"</span>, </span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ann =</span> T, </span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">varwidth =</span> F, <span class="at">outline=</span>T, <span class="at">col=</span><span class="st">"#588157"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -4931,18 +4944,21 @@ b.  Con la frecuencia porcentual</code></pre>
 </div>
 </div>
 </div>
+<blockquote class="blockquote">
+<p>De los encuestados, la mediana de respuesta de cuantos hijos que le gustaría llegar a tener es 2, compartiendo una media similar de 2.3 y con un valor máximo de 5.</p>
+</blockquote>
 </section>
 <section id="libros" class="level4" data-number="3.12.2.5">
 <h4 data-number="3.12.2.5" class="anchored" data-anchor-id="libros"><span class="header-section-number">3.12.2.5</span> libros</h4>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(cuestionario<span class="sc">$</span>libros, <span class="at">na.action =</span> <span class="cn">NULL</span>,</span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"cantidad"</span>,</span>
-<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"cantidad de libros leidos en 12 meses"</span>, </span>
-<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ann =</span> T, </span>
-<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">varwidth =</span> F, <span class="at">outline=</span>T, <span class="at">col=</span><span class="st">"#457b9d"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(cuestionario<span class="sc">$</span>libros, <span class="at">na.action =</span> <span class="cn">NULL</span>,</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"cantidad"</span>,</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"cantidad de libros leidos en 12 meses"</span>, </span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ann =</span> T, </span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">varwidth =</span> F, <span class="at">outline=</span>T, <span class="at">col=</span><span class="st">"#457b9d"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -4952,18 +4968,21 @@ b.  Con la frecuencia porcentual</code></pre>
 </div>
 </div>
 </div>
+<blockquote class="blockquote">
+<p>De la cantidad de libros leídos en 12 meses, la cantidad máxima superior al quartil es de 40 por año y valor mínmo es de 1 libro por año, la mediana es de 5 libros por año y el promedio de la muestra por 7 libros al año</p>
+</blockquote>
 </section>
 <section id="ingreso1" class="level4" data-number="3.12.2.6">
 <h4 data-number="3.12.2.6" class="anchored" data-anchor-id="ingreso1"><span class="header-section-number">3.12.2.6</span> ingreso1</h4>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(cuestionario<span class="sc">$</span>ingreso1, <span class="at">na.action =</span> <span class="cn">NULL</span>,</span>
-<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"ingreso"</span>,</span>
-<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"ingresos personales"</span>, </span>
-<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ann =</span> T, </span>
-<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">varwidth =</span> F, <span class="at">outline=</span>T, <span class="at">col=</span><span class="st">"#fe7f2d"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(cuestionario<span class="sc">$</span>ingreso1, <span class="at">na.action =</span> <span class="cn">NULL</span>,</span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"ingreso"</span>,</span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"ingresos personales"</span>, </span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ann =</span> T, </span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">varwidth =</span> F, <span class="at">outline=</span>T, <span class="at">col=</span><span class="st">"#fe7f2d"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -4973,18 +4992,21 @@ b.  Con la frecuencia porcentual</code></pre>
 </div>
 </div>
 </div>
+<blockquote class="blockquote">
+<p>Del tipo de ingreso personal la mediana de la muestra es 0 y la media corresponde a un 27.630, con varios outliers llegando a un valor máximo de 450.</p>
+</blockquote>
 </section>
 <section id="ingreso2" class="level4" data-number="3.12.2.7">
 <h4 data-number="3.12.2.7" class="anchored" data-anchor-id="ingreso2"><span class="header-section-number">3.12.2.7</span> ingreso2</h4>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(cuestionario<span class="sc">$</span>ingreso2, <span class="at">na.action =</span> <span class="cn">NULL</span>,</span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"ingreso"</span>,</span>
-<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"ingreso por la pareja"</span>, </span>
-<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ann =</span> T, </span>
-<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb71-6"><a href="#cb71-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">varwidth =</span> F, <span class="at">outline=</span>T, <span class="at">col=</span><span class="st">"#fe7f2d"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(cuestionario<span class="sc">$</span>ingreso2, <span class="at">na.action =</span> <span class="cn">NULL</span>,</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"ingreso"</span>,</span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"ingreso por la pareja"</span>, </span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ann =</span> T, </span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">varwidth =</span> F, <span class="at">outline=</span>T, <span class="at">col=</span><span class="st">"#fe7f2d"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -4994,18 +5016,21 @@ b.  Con la frecuencia porcentual</code></pre>
 </div>
 </div>
 </div>
+<blockquote class="blockquote">
+<p>Del tipo de ingreso de la pareja la mediana de la muestra es 0, más del 95% de respuesta se ubica en este valor, es decir no recibe ingreso por la pareja. Y la media corresponde a un 7.529, inferior al tipo de ingreso personal, con varios outliers llegando a un valor máximo de 380.</p>
+</blockquote>
 </section>
 <section id="ingreso3" class="level4" data-number="3.12.2.8">
 <h4 data-number="3.12.2.8" class="anchored" data-anchor-id="ingreso3"><span class="header-section-number">3.12.2.8</span> ingreso3</h4>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(cuestionario<span class="sc">$</span>ingreso3, <span class="at">na.action =</span> <span class="cn">NULL</span>,</span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"ingreso"</span>,</span>
-<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"ingreso por aportaciones familiares"</span>, </span>
-<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ann =</span> T, </span>
-<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">varwidth =</span> F, <span class="at">outline=</span>T, <span class="at">col=</span> <span class="st">"#fe7f2d"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(cuestionario<span class="sc">$</span>ingreso3, <span class="at">na.action =</span> <span class="cn">NULL</span>,</span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"ingreso"</span>,</span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"ingreso por aportaciones familiares"</span>, </span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ann =</span> T, </span>
+<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb71-6"><a href="#cb71-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">varwidth =</span> F, <span class="at">outline=</span>T, <span class="at">col=</span> <span class="st">"#fe7f2d"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -5015,18 +5040,21 @@ b.  Con la frecuencia porcentual</code></pre>
 </div>
 </div>
 </div>
+<blockquote class="blockquote">
+<p>Del tipo de ingreso por aportaciones familiares, el valor máximo de ingreso es de 250 con una mediana de 12 y mediana de 19.01, de los valores extremos los rangos vacilan entre más de 50 a 250.</p>
+</blockquote>
 </section>
 <section id="edad" class="level4" data-number="3.12.2.9">
 <h4 data-number="3.12.2.9" class="anchored" data-anchor-id="edad"><span class="header-section-number">3.12.2.9</span> edad</h4>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(cuestionario<span class="sc">$</span>edad, <span class="at">na.action =</span> <span class="cn">NULL</span>,</span>
-<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"edad"</span>,</span>
-<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"edad cumplida"</span>, </span>
-<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ann =</span> T, </span>
-<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">varwidth =</span> F, <span class="at">outline=</span>T, <span class="at">col=</span><span class="st">"#ef798a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(cuestionario<span class="sc">$</span>edad, <span class="at">na.action =</span> <span class="cn">NULL</span>,</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"edad"</span>,</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">"edad cumplida"</span>, </span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ann =</span> T, </span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">varwidth =</span> F, <span class="at">outline=</span>T, <span class="at">col=</span><span class="st">"#ef798a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -5036,6 +5064,9 @@ b.  Con la frecuencia porcentual</code></pre>
 </div>
 </div>
 </div>
+<blockquote class="blockquote">
+<p>El rango de edad de años cumplidos en el último año, la edad mínima es de 17 y la máxima de 29, con una mediana de 22 años de los encuestados</p>
+</blockquote>
 </section>
 </section>
 </section>
@@ -5052,11 +5083,11 @@ b.  Con la frecuencia porcentual</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span>
-<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro_test</span>(cuestionario<span class="sc">$</span>horas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro_test</span>(cuestionario<span class="sc">$</span>horas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
@@ -5080,9 +5111,9 @@ b.  Con la frecuencia porcentual</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>cuestionario <span class="sc">%&gt;%</span></span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(genero) <span class="sc">%&gt;%</span></span>
-<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shapiro_test</span>(horas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>cuestionario <span class="sc">%&gt;%</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(genero) <span class="sc">%&gt;%</span></span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shapiro_test</span>(horas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
@@ -5114,7 +5145,7 @@ b.  Con la frecuencia porcentual</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggqqplot</span>(cuestionario, <span class="st">"horas"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggqqplot</span>(cuestionario, <span class="st">"horas"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -5125,7 +5156,7 @@ b.  Con la frecuencia porcentual</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggqqplot</span>(cuestionario, <span class="st">"horas"</span>, <span class="at">facet.by =</span> <span class="st">"genero"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggqqplot</span>(cuestionario, <span class="st">"horas"</span>, <span class="at">facet.by =</span> <span class="st">"genero"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -5142,7 +5173,7 @@ b.  Con la frecuencia porcentual</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(cuestionario<span class="sc">$</span>horas <span class="sc">~</span> <span class="fu">as.factor</span>(cuestionario<span class="sc">$</span>genero))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(cuestionario<span class="sc">$</span>horas <span class="sc">~</span> <span class="fu">as.factor</span>(cuestionario<span class="sc">$</span>genero))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
@@ -5177,7 +5208,7 @@ b.  Con la frecuencia porcentual</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>cuestionario <span class="sc">%&gt;%</span> <span class="fu">wilcox_test</span>(horas <span class="sc">~</span> genero)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>cuestionario <span class="sc">%&gt;%</span> <span class="fu">wilcox_test</span>(horas <span class="sc">~</span> genero)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
@@ -5219,9 +5250,9 @@ b.  Con la frecuencia porcentual</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>cuestionario<span class="sc">$</span>colegio2 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(cuestionario<span class="sc">$</span>colegio <span class="sc">%in%</span> <span class="dv">1</span>, <span class="st">"Estatal"</span>, <span class="st">"Privado"</span>)</span>
-<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(cuestionario<span class="sc">$</span>colegio, cuestionario<span class="sc">$</span>colegio2) <span class="sc">%&gt;%</span> <span class="fu">kbl</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>cuestionario<span class="sc">$</span>colegio2 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(cuestionario<span class="sc">$</span>colegio <span class="sc">%in%</span> <span class="dv">1</span>, <span class="st">"Estatal"</span>, <span class="st">"Privado"</span>)</span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(cuestionario<span class="sc">$</span>colegio, cuestionario<span class="sc">$</span>colegio2) <span class="sc">%&gt;%</span> <span class="fu">kbl</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -5262,7 +5293,7 @@ b.  Con la frecuencia porcentual</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro_test</span>(cuestionario<span class="sc">$</span>libros)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro_test</span>(cuestionario<span class="sc">$</span>libros)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
@@ -5286,9 +5317,9 @@ b.  Con la frecuencia porcentual</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>cuestionario <span class="sc">%&gt;%</span></span>
-<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(genero) <span class="sc">%&gt;%</span></span>
-<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shapiro_test</span>(libros)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>cuestionario <span class="sc">%&gt;%</span></span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(genero) <span class="sc">%&gt;%</span></span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shapiro_test</span>(libros)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
@@ -5320,7 +5351,7 @@ b.  Con la frecuencia porcentual</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggqqplot</span>(cuestionario, <span class="st">"libros"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggqqplot</span>(cuestionario, <span class="st">"libros"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -5331,7 +5362,7 @@ b.  Con la frecuencia porcentual</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggqqplot</span>(cuestionario, <span class="st">"libros"</span>, <span class="at">facet.by =</span> <span class="st">"colegio2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggqqplot</span>(cuestionario, <span class="st">"libros"</span>, <span class="at">facet.by =</span> <span class="st">"colegio2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -5348,7 +5379,7 @@ b.  Con la frecuencia porcentual</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(cuestionario<span class="sc">$</span>libros <span class="sc">~</span> <span class="fu">as.factor</span>(cuestionario<span class="sc">$</span>colegio2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(cuestionario<span class="sc">$</span>libros <span class="sc">~</span> <span class="fu">as.factor</span>(cuestionario<span class="sc">$</span>colegio2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
@@ -5383,7 +5414,7 @@ b.  Con la frecuencia porcentual</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>cuestionario <span class="sc">%&gt;%</span> <span class="fu">wilcox_test</span>(libros <span class="sc">~</span> colegio2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>cuestionario <span class="sc">%&gt;%</span> <span class="fu">wilcox_test</span>(libros <span class="sc">~</span> colegio2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
