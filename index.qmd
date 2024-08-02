@@ -30,6 +30,9 @@ library(gt)
 library(gtExtras)
 library(kableExtra)
 library(tidyverse)
+library(expss)
+library(haven)
+library(readxl)
 ```
 
 ## Consigne las definiciones de Población, muestra y unidad de análisis
@@ -51,9 +54,8 @@ library(tidyverse)
 tabla_1 <- openxlsx::read.xlsx("tablas.xlsx", sheet = "1") 
 
 
-gt(tabla_1) %>%
-  tab_header(
-    title = md("**Tabla 1: niveles de medición**")) %>%
+gt::gt(tabla_1) %>%
+  tab_header(title =  md("**Tabla 1: niveles de medición**")) %>%
   tab_options(
     heading.align = "left",
     row_group.font.weight = "bolder",
@@ -61,10 +63,13 @@ gt(tabla_1) %>%
   cols_label(
     nivel_medicion = "Nivel", definicion = "Definición", ejemplo =  "Ejemplo"
   ) %>%
+  cols_width(nivel_medicion ~ px(100), ejemplo ~ px(100)) %>% 
    tab_style(
     style = list(cell_text(weight = "bold")),
     locations = cells_body(
       columns = nivel_medicion))
+
+
 ```
 
 ## Consigne las principales propiedades de la distribución normal
@@ -125,17 +130,31 @@ En estadística, una hipótesis es una afirmación o aseveración acerca de una 
 
 El funcionamiento de esta técnica inferencial se basa en la realización de una afirmación acerca de un parámetro de una o más poblaciones (hipótesis) y en el estudio de la compatibilidad entre esta afirmación y lo observado en la muestra. En principio, cuanto mayor sea la discrepancia entre la hipótesis realizada y la información proporcionada por la muestra observada, mayor será la evidencia en contra de dicha hipótesis.
 
--   La **hipótesis nula** (denotada con $H_0$) es la afirmación de que el valor de un parámetro poblacional (como una proporción, media o desviación estándar) es igual a un valor establecido. (El término nula se usa para indicar ningún cambio, ningún efecto o ninguna diferencia). La siguiente es una hipótesis nula típica del tipo considerado en este capítulo: $H_0$: $p$ = 0.5. La hipótesis nula se prueba en forma directa, en el sentido de que suponemos (o fingimos) que es verdadera, y llegamos a una conclusión para rechazarla o no.
+-   Hipótesis a evaluar:
 
--   La **hipótesis alternativa** (denotada con $H_1$ o $H_a$ o $H_A$) es la afirmación de que el parámetro tiene un valor que, de alguna manera, difiere de la hipótesis nula. Para los métodos de este capítulo, la forma simbólica de la hipótesis alternativa debe emplear alguno de estos símbolos: $<$, $>$, o bien, $Z$.
+    -   La **hipótesis nula** (denotada con $H_0$) es la afirmación de que el valor de un parámetro poblacional (como una proporción, media o desviación estándar) es igual a un valor establecido. (El término nula se usa para indicar ningún cambio, ningún efecto o ninguna diferencia). La siguiente es una hipótesis nula típica del tipo considerado en este capítulo: $H_0$: $p$ = 0.5. La hipótesis nula se prueba en forma directa, en el sentido de que suponemos (o fingimos) que es verdadera, y llegamos a una conclusión para rechazarla o no.
 
--  **Error tipo I**
+    -   La **hipótesis alternativa** (denotada con $H_1$ o $H_a$ o $H_A$) es la afirmación de que el parámetro tiene un valor que, de alguna manera, difiere de la hipótesis nula. Para los métodos de este capítulo, la forma simbólica de la hipótesis alternativa debe emplear alguno de estos símbolos: $<$, $>$, o bien, $Z$.
 
+-   Posibles errores a cometer:
 
--  **Error tipo I**
+    -   **Error tipo I**: Rechazar ${H_0}$ cuando es verdadera
 
+    -   **Error tipo I**: Aceptar ${H_0}$ cuando es falsa
 
-- **Nivel de significación**
+-   Nivel de significación: Probabilidad de error tipo I ($\alpha$). Se fija a priori (usualmente 0,05 o 0,01)
+
+-   Probabilidad de error tipo II ($\beta$): Depende del tamaño de la muestra y no se fija a priori.
+
+-   Potencia del test: Se calcula como uno menos la probabilidad de error tipo II. Se puede calcular el tamaño de muestra para obtener una potencia determinada.
+
+-   Estadistica de prueba: se calcula con la informacion muestral. Se conoce su distribucion bajo el supuesto de que ${H_0}$ es verdadera.
+
+-   Región de rechazo de un test: es el conjunto de valores del estadístico de prueba para los cuales se rechaza la hipotesis nula ${H_0}$
+
+-   Región de aceptación de un test: es el conjunto de valores del estadístico de prueba para los cuales no se rechaza la hipotesis nula ${H_0}$
+
+-   Regla de decision: se fija el valor maximo de error tipo I que se esta dispuesto a cometer ($\alpha$). Se calcula la probabilidad de rechazar ${H_0}$ cuando es verdadera usando la informacion de la muestra (p-value). Si este valor es menor o igual a $\alpha$ rechazo la hipotesis nula, en caso contrario no la rechazo.
 
 # Segunda parte: Evaluación práctica
 
@@ -151,18 +170,14 @@ b.  Identificar, para cada una de ellas el nivel de medición y las modalidades/
 #| echo: false
 tabla_2 <- openxlsx::read.xlsx("tablas.xlsx", sheet = "2") %>% 
   group_by(eje) %>% select(-1) %>% 
-gt() %>% 
+gt::gt() %>% 
   tab_header(
     title = md("**Tabla 2: variables cuestionario**")) %>% 
-   # gt_merge_stack(
-   #          col1 = variables,
-   #          col2 = nivel
-   #          #col2 = categorias
-   #          ) %>%
   cols_label(
-    pregunta = "Pregunta", variables = "Variables", categorias =  "Categorías",
-    nivel = "Nivel de medición"
+    pregunta = "Pregunta", variables = "Variables", categorias =  "Categorías", nivel = "Nivel de medición"
   ) %>% 
+  cols_width(nivel ~ px(100), variables ~ px(100)) %>% 
+  fmt_markdown(columns = everything()) %>% 
    tab_options(
     heading.align = "left",
     row_group.font.weight = "bolder",
@@ -173,12 +188,12 @@ tabla_2
 
 # Tercera parte: Análisis estadístico descriptivo
 
-En esta actividad se trabajará con el archivo de datos “cuestionario.xlsx”.
+En esta actividad se trabajará con el archivo de datos *“cuestionario.xlsx”.*
 
 ## Importar los datos a R.
 
 ```{r}
-cuestionario <- openxlsx::read.xlsx("EVALUACION/cuestionario.xlsx")
+cuestionario <- read_excel("EVALUACION/cuestionario.xlsx")
 ```
 
 ## Utilizando la función table() y sus funciones anexas, calcular
@@ -188,31 +203,31 @@ cuestionario <- openxlsx::read.xlsx("EVALUACION/cuestionario.xlsx")
 #### Ocio
 
 ```{r}
-addmargins(table(cuestionario$ocio,useNA = "always")) %>% kbl()
+addmargins(table(cuestionario$ocio)) %>% kbl()
 ```
 
 #### Género
 
 ```{r}
-addmargins(table(cuestionario$genero,useNA = "always")) %>% kbl()
+addmargins(table(cuestionario$genero)) %>% kbl()
 ```
 
 #### Colegio
 
 ```{r}
-addmargins(table(cuestionario$colegio,useNA = "always")) %>% kbl()
+addmargins(table(cuestionario$colegio)) %>% kbl()
 ```
 
 #### Amor
 
 ```{r}
-addmargins(table(cuestionario$amor,useNA = "always")) %>% kbl()
+addmargins(table(cuestionario$amor)) %>% kbl()
 ```
 
 #### Religión
 
 ```{r}
-addmargins(table(cuestionario$religion,useNA = "always")) %>% kbl()
+addmargins(table(cuestionario$religion)) %>% kbl()
 ```
 
 ### Las tablas de frecuencias relativas para las variables ocio, genero, colegio, amor, religión
@@ -263,7 +278,7 @@ par(mfrow = c(1, 2))
 g1 <- barplot(table(cuestionario$genero),
         main="frecuencia absoluta por género",
         xlab="género",
-        ylab="frecuencia absoluta",
+        ylab="casos",
         border="#386641",
         col="#386641",
         density=100,
@@ -282,7 +297,7 @@ p1 <- round(prop.table(table(cuestionario$genero))*100,2)
 g2 <- barplot(p1,
         main="frecuencia porcentual por género",
         xlab="género",
-        ylab="frecuencia porcentual",
+        ylab="porcentaje",
         border="#003554",
         col="#003554",
         density=80,
@@ -308,7 +323,7 @@ par(mfrow = c(1, 2))
 g3 <- barplot(table(cuestionario$ocio),
         main="frecuencia absoluta por ocio",
         xlab="ocio",
-        ylab="frecuencia absoluta",
+        ylab="casos",
         border="#386641",
         col="#386641",
         density=100,
@@ -328,7 +343,7 @@ p2 <- round(prop.table(table(cuestionario$ocio))*100,2)
 g4 <- barplot(p2,
         main="frecuencia porcentual por ocio",
         xlab="ocio",
-        ylab="frecuencia porcentual",
+        ylab="porcentaje",
         border="#003554",
         col="#003554",
         density=80, 
@@ -353,7 +368,7 @@ par(mfrow = c(1, 2))
 g5 <- barplot(table(cuestionario$amor),
         main="frecuencia absoluta por amor",
         xlab="amor",
-        ylab="frecuencia absoluta",
+        ylab="casos",
         border="#386641",
         col="#386641",
         density=100,
@@ -372,7 +387,7 @@ p3 <- round(prop.table(table(cuestionario$amor))*100,2)
 g6 <- barplot(p3,
         main="frecuencia porcentual por amor",
         xlab="amor",
-        ylab="frecuencia porcentual",
+        ylab="porcentaje",
         border="#003554",
         col="#003554",
         density=80, 
@@ -396,7 +411,7 @@ par(mfrow = c(1, 2))
 g7 <- barplot(table(cuestionario$colegio),
         main="frecuencia absoluta por colegio",
         xlab="colegio",
-        ylab="frecuencia absoluta",
+        ylab="casos",
         border="#386641",
         col="#386641",
         density=100,
@@ -415,7 +430,7 @@ p4 <- round(prop.table(table(cuestionario$colegio))*100,2)
 g8 <- barplot(p4,
         main="frecuencia porcentual por colegio",
         xlab="colegio",
-        ylab="frecuencia porcentual",
+        ylab="porcentaje",
         border="#003554",
         col="#003554",
         density=80,
@@ -441,7 +456,7 @@ par(mfrow = c(1, 2))
 g9 <- barplot(table(cuestionario$religion),
         main="frecuencia absoluta por religion",
         xlab="religion",
-        ylab="frecuencia absoluta",
+        ylab="casos",
         border="#386641",
         col="#386641",
         density=100,
@@ -460,7 +475,7 @@ p5 <- round(prop.table(table(cuestionario$religion))*100,2)
 g10 <- barplot(p5,
         main="frecuencia porcentual por religion",
         xlab="religion",
-        ylab="frecuencia porcentual",
+        ylab="porcentaje",
         border="#003554",
         col="#003554",
         density=80,
@@ -487,7 +502,7 @@ text(x = g10,
 
 ```{r}
 # absoluta
-addmargins(table(cuestionario$ocio, cuestionario$genero,useNA = "always")) %>% kbl()
+addmargins(table(cuestionario$ocio, cuestionario$genero)) %>% kbl()
 ```
 
 </div>
@@ -510,7 +525,7 @@ kbl(round(prop.table(table(cuestionario$ocio, cuestionario$genero))*100,2))
 
 ```{r}
 # absoluta
-addmargins(table(cuestionario$ocio, cuestionario$colegio,useNA = "always")) %>% kbl()
+addmargins(table(cuestionario$ocio, cuestionario$colegio)) %>% kbl()
 ```
 
 </div>
@@ -530,7 +545,7 @@ kbl(round(prop.table(table(cuestionario$ocio, cuestionario$colegio))*100,2))
 
 ```{r}
 # absoluta
-addmargins(table(cuestionario$amor, cuestionario$religion,useNA = "always")) %>% kbl()
+addmargins(table(cuestionario$amor, cuestionario$religion)) %>% kbl()
 
 # relativa
 kbl(round(prop.table(table(cuestionario$amor, cuestionario$religion))*100,2))
@@ -541,19 +556,1228 @@ kbl(round(prop.table(table(cuestionario$amor, cuestionario$religion))*100,2))
 
 ```{r}
 # absoluta
-addmargins(table(cuestionario$colegio, cuestionario$religion,useNA = "always")) %>% kbl()
+addmargins(table(cuestionario$colegio, cuestionario$religion)) %>% kbl()
 
 # relativa
 kbl(round(prop.table(table(cuestionario$colegio, cuestionario$religion))*100,2))
 
 ```
 
+## Gráficos para los cruces de variables anteriores
+
+### Gráfico 6: Ocio y genero
+
+```{r}
+paleta7 <- c("#f7a3b7","#ef476f", "#f78c6b", "#ffd166","#06d6a0","#118ab2", "#073b4c")
+ocio <- c("Beber, ir de copas,\nbailar", "Hacer deportes", "Viajes, excursiones", "Ir al cine, al teatro", "Ir a museos,\nir a conciertos", "Leer")
+
+g_a1 <- barplot(
+        table(cuestionario$ocio, cuestionario$genero),
+        beside = T,
+        main="frecuencia absoluta ocio según género",
+        xlab="género",
+        ylab="casos",
+        border=paleta7,
+        col= paleta7,
+        #density=100,
+        ylim= c(0, 150)
+        )
+
+legend("topright",
+        legend = ocio,
+        fill = paleta7,
+        cex=0.6,
+        xpd = TRUE,
+        inset = c(-0.05,0)
+       )
+
+text(x = g_a1, 
+     y = table(cuestionario$ocio, cuestionario$genero), 
+     label = table(cuestionario$ocio, cuestionario$genero), 
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+```
+
+```{r}
+p11 <- round(prop.table(table(cuestionario$ocio, cuestionario$genero))*100,2)
+
+g_a2 <- barplot(p11,
+                beside = T,
+        main="frecuencia porcentual ocio según género",
+        xlab="género",
+        ylab="porcentaje",
+        border= paleta7,
+        col= paleta7,
+        density=90,
+ylim =  c(0,25))
+
+legend("topright",
+        legend = ocio,
+        fill = paleta7,
+        cex=0.6,
+       density = 90,
+        xpd = TRUE,
+        inset = c(-0.05,0)
+       )
+
+text(x = g_a2, 
+     y = p11,
+     label = p11,
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+
+
+
+```
+
+### Gráfico 7: Ocio y colegio
+
+```{r}
+
+paleta7 <- c("#f7a3b7","#ef476f", "#f78c6b", "#ffd166","#06d6a0","#118ab2", "#073b4c")
+ocio <- c("Beber, ir de copas,\nbailar", "Hacer deportes", "Viajes, excursiones", "Ir al cine, al teatro", "Ir a museos,\nir a conciertos", "Leer")
+
+g_a3 <- barplot(
+        table(cuestionario$ocio,cuestionario$colegio),
+        beside = T,
+        main="frecuencia absoluta ocio según colegio",
+        xlab="colegio",
+        ylab="casos",
+        border=paleta7,
+        col= paleta7,
+        #density=100,
+        ylim= c(0, 150)
+        )
+
+legend("topright",
+        legend = ocio,
+        fill = paleta7,
+        cex=0.6,
+        xpd = TRUE,
+        inset = c(-0.05,0) )
+
+text(x = g_a3, 
+     y = table(cuestionario$ocio, cuestionario$colegio), 
+     label = table(cuestionario$ocio,cuestionario$colegio), 
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+```
+
+```{r}
+
+
+p22 <- round(prop.table(table(cuestionario$ocio, cuestionario$colegio))*100,2)
+
+g_a4 <- barplot(p22,
+                beside = T,
+        main="frecuencia porcentual ocio según colegio",
+        xlab="colegio",
+        ylab="porcentaje",
+        border= paleta7,
+        col= paleta7,
+        density=90,
+ylim =  c(0,25))
+
+legend("topright",
+        density = 90,
+        legend = ocio,
+        fill = paleta7,
+        cex=0.6,
+        xpd = TRUE,
+        inset = c(-0.05,0)
+       )
+
+text(x = g_a4, 
+     y = p22,
+     label = p22,
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+
+```
+
+### Gráfico 8: Amor y religión
+
+```{r}
+
+paleta4 <- c("#218380","#8f2d56", "#d81159", "#ffbc42")
+
+insideout <- c("Tienes novio/a formal", "Ahora no tienes novio/a formal", "Hasta ahora solo has tenido relaciones afectivas pasajeras", "Nunca has tenido una relación especial con un chico/a")
+
+g_a5 <- barplot(
+        table(cuestionario$amor, cuestionario$religion),
+        beside = T,
+        main="frecuencia absoluta situación sentimental según percepción religiosa",
+        xlab="percepción religiosa",
+        ylab="casos",
+        border=paleta4,
+        col= paleta4,
+        #density=100,
+        ylim= c(0,200)
+        )
+
+legend("topright",
+        legend = insideout,
+        fill = paleta4,
+        cex=0.6,
+        xpd = TRUE,
+        inset = c(-0.05,0) )
+
+text(x = g_a5, 
+     y = table(cuestionario$amor, cuestionario$religion), 
+     label = table(cuestionario$amor, cuestionario$religion), 
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+```
+
+```{r}
+
+p33 <- round(prop.table(table(cuestionario$amor, cuestionario$religion))*100,2)
+
+g_a6 <- barplot(p33,
+                beside = T,
+        main="frecuencia porcentual ocio según colegio",
+        xlab="percepción religiosa",
+        ylab="porcentaje",
+        border= paleta4,
+        col= paleta4,
+        density=90,
+ylim =  c(0,25))
+
+legend("topright",
+        density = 90,
+        legend = insideout,
+        fill = paleta4,
+        cex=0.6,
+        xpd = TRUE,
+        inset = c(-0.05,0)
+       )
+
+text(x = g_a6, 
+     y = p33,
+     label = p33,
+     pos = 3, 
+     cex = 0.6, 
+     col = "black")
+
+
+```
+
+### Gráfico 9: Colegio y religión
+
+```{r}
+paleta3 <- c("#26547c","#ef476f", "#ffd166")
+estudio <- c("centro estatal, público", "centro privado, no religioso","centro privado, religioso" )
+
+g_a7 <- barplot(
+        table(cuestionario$colegio, cuestionario$religion),
+        beside = T,
+        main="frecuencia absoluta percepción religiosa  según lugar de estudio",
+        xlab="percepción religiosa",
+        ylab="casos",
+        border=paleta3,
+        col= paleta3,
+        #density=100,
+        ylim= c(0,300)
+        )
+
+legend("topright",
+        legend = estudio,
+        fill = paleta3,
+        cex=0.6,
+        xpd = TRUE,
+        inset = c(-0.05,0) )
+
+text(x = g_a7, 
+     y = table(cuestionario$colegio, cuestionario$religion), 
+     label = table(cuestionario$colegio, cuestionario$religion), 
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+```
+
+```{r}
+# relativa
+p44 <- round(prop.table(table(cuestionario$colegio, cuestionario$religion))*100,2)
+
+g_a8 <- barplot(p44,
+                beside = T,
+        main="frecuencia porcentual percepción religiosa  según lugar de estudio",
+        xlab="percepción religiosa",
+        ylab="porcentaje",
+        border= paleta3,
+        col= paleta3,
+        density=90,
+ylim =  c(0,40))
+
+legend("topright",
+        density = 90,
+        legend = estudio,
+        fill = paleta3,
+        cex=0.6,
+        xpd = TRUE,
+        inset = c(-0.05,0)
+       )
+
+text(x = g_a8, 
+     y = p44,
+     label = p44,
+     pos = 3, 
+     cex = 0.7, 
+     col = "black")
+
+```
+
+## {expss}
+
+### etiquetas a variables y sus categorías
+
+```{r}
+#| warning: false
+#| message: false
+cuestionario <- expss::apply_labels(cuestionario,
+                             ocio = "Actividad tiempo libre",
+                             genero = "Género",
+                             colegio = "Lugar de estudios",
+                             religion = "Autopercepción religiosa",
+                             amor = "Situación vincular/afectiva") 
+
+```
+
+```{r}
+cuestionario <- expss::apply_labels(cuestionario,
+                             ocio = c("Beber,ir de copas,bailar"= 1,
+                                      "Hacer deportes" = 2,
+                                      "Viajes,excursiones" = 3,
+                                      "Ir al cine, al teatro" = 4, 
+                                      "Ir a museos, ir a conciertos" = 5, 
+                                      "Leer" = 6),
+                             genero = c("Hombre" = 1, "Mujer" = 2),
+                             colegio = c("En un centro estatal, público" = 1, 
+                                         "En un centro privado, no religioso" = 2,
+                                         "En un centro privado, religioso" = 3),
+                             religion = c("Católico practicante" = 1,
+                                          "Católico no practicante" = 2,
+                                          "Creyente de otra religión" = 3,
+                                          "No creyente" = 4, 
+                                          "Indiferente" = 5),
+                             amor = c("Tienes novio/a formal" = 1,
+                                      "Ahora no tienes novio/a formal" = 2,
+                                      "Hasta ahora solo has tenido relaciones afectivas pasajeras" = 3,
+                                      "Nunca has tenido una relación especial con un chico/a" = 4))
+
+
+```
+
+## función fre() y sus funciones anexas, calcular:
+
+Las tablas de frecuencias absolutas y relativas para las variables ocio, genero, colegio, amor, religión
+
+#### Ocio
+
+```{r}
+fre(cuestionario$ocio)
+```
+
+#### Género
+
+```{r}
+fre(cuestionario$genero)
+```
+
+#### Colegio
+
+```{r}
+fre(cuestionario$colegio)
+```
+
+#### Amor
+
+```{r}
+fre(cuestionario$amor)
+```
+
+#### Religión
+
+```{r}
+fre(cuestionario$religion)
+```
+
+## Realizar gráficos de barras para cada una de las variables anteriores
+
+```         
+a.  Con la frecuencia relativa
+b.  Con la frecuencia porcentual
+```
+
+```{r}
+#| echo: true
+#| warning: false
+#| include: false
+cuestionario <- expss::apply_labels(cuestionario,
+                             ocio = c("Beber,\nir de copas,\nbailar"= 1,
+                                      "Hacer deportes" = 2,
+                                      "Viajes,\nexcursiones" = 3,
+                                      "Ir al cine,\nal teatro" = 4, 
+                                      "Ir a museos,\nir a conciertos" = 5, 
+                                      "Leer" = 6),
+                             genero = c("Hombre" = 1, "Mujer" = 2),
+                             colegio = c("En un centro estatal,\npúblico" = 1, 
+                                         "En un centro privado,\nno religioso" = 2,
+                                         "En un centro privado,\nreligioso" = 3),
+                             religion = c("Católico\npracticante" = 1,
+                                          "Católico\nno practicante" = 2,
+                                          "Creyente\nde otra religión" = 3,
+                                          "No creyente" = 4, 
+                                          "Indiferente" = 5),
+                             amor = c("Tienes novio/a\nformal" = 1,
+                                      "Ahora no tienes\nnovio/a formal" = 2,
+                                      "Hasta ahora solo\n has tenido relaciones\nafectivas pasajeras" = 3,
+                                      "Nunca has tenido\nuna relación especial\ncon un chico/a" = 4))
+```
+
+### Gráfico 10: frecuencia absoluta y porcentual por variable género
+
+```{r}
+
+par(mfrow = c(1, 2))
+
+g1 <- barplot(table(cuestionario$genero),
+        main="frecuencia absoluta por género",
+        xlab="género",
+        ylab="casos",
+        border="#006d77",
+        col="#006d77",
+        density=100,
+        ylim= c(0, 400))
+
+text(x = g1, 
+     y = table(cuestionario$genero), 
+     label = table(cuestionario$genero), 
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+
+
+p1 <- round(prop.table(table(cuestionario$genero))*100,2)
+
+g2 <- barplot(p1,
+        main="frecuencia porcentual por género",
+        xlab="género",
+        ylab="porcentaje",
+        border="#83c5be",
+        col="#83c5be",
+        density=80,
+ylim =  c(0,60))
+
+text(x = g2, 
+     y = p1,
+     label = p1,
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+
+
+
+```
+
+### Gráfico 11: frecuencia absoluta y porcentual por variable ocio
+
+```{r}
+
+g3 <- barplot(table(cuestionario$ocio),
+        main="frecuencia absoluta por ocio",
+        xlab="ocio",
+        ylab="casos",
+        border="#006d77",
+        col="#006d77",
+        density=100,
+        ylim =  c(0,250),
+        cex.names = 0.6)
+
+
+text(x = g3, 
+     y = table(cuestionario$ocio), 
+     label = table(cuestionario$ocio), 
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+```
+
+```{r}
+p2 <- round(prop.table(table(cuestionario$ocio))*100,2)
+
+g4 <- barplot(p2,
+        main="frecuencia porcentual por ocio",
+        xlab="ocio",
+        ylab="porcentaje",
+        border="#83c5be",
+        col="#83c5be",
+        density=80,
+        cex.names = 0.6,
+        ylim =  c(0,35))
+
+text(x = g4, 
+     y = p2, 
+     label = p2, 
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+
+
+```
+
+### Gráfico 12: frecuencia absoluta y porcentual por variable amor
+
+```{r}
+g5 <- barplot(table(cuestionario$amor),
+        main="frecuencia absoluta por amor",
+        xlab="amor",
+        ylab="casos",
+        border="#006d77",
+        col="#006d77",
+        density=100,
+        cex.names = 0.6,
+        ylim=c(0, 350))
+
+text(x = g5, 
+     y = table(cuestionario$amor), 
+     label = table(cuestionario$amor), 
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+```
+
+```{r}
+p3 <- round(prop.table(table(cuestionario$amor))*100,2)
+
+g6 <- barplot(p3,
+        main="frecuencia porcentual por amor",
+        xlab="amor",
+        ylab="porcentaje",
+        border="#83c5be",
+        col="#83c5be",
+        density=80,
+        cex.names = 0.6,
+        ylim=c(0, 50))
+
+text(x = g6, 
+     y = p3, 
+     label = p3, 
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+
+```
+
+### Gráfico 13: frecuencia absoluta y porcentual por variable colegio
+
+```{r}
+g7 <- barplot(table(cuestionario$colegio),
+        main="frecuencia absoluta por colegio",
+        xlab="colegio",
+        ylab="casos",
+        border="#006d77",
+        col="#006d77",
+        density=100,
+        cex.names = 0.6,
+        ylim =  c(0,600))
+
+text(x = g7, 
+     y = table(cuestionario$colegio), 
+     label = table(cuestionario$colegio), 
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+```
+
+```{r}
+p4 <- round(prop.table(table(cuestionario$colegio))*100,2)
+
+g8 <- barplot(p4,
+        main="frecuencia porcentual por colegio",
+        xlab="colegio",
+        ylab="porcentaje",
+        border="#83c5be",
+        col="#83c5be",
+        density=80,
+        cex.names = 0.6,
+        ylim =  c(0,80))
+
+text(x = g8, 
+     y = p4, 
+     label = p4, 
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+
+
+
+```
+
+### Gráfico 14: frecuencia absoluta y porcentual por variable religión
+
+```{r}
+g9 <- barplot(table(cuestionario$religion),
+        main="frecuencia absoluta por religion",
+        xlab="religion",
+        ylab="casos",
+        border="#006d77",
+        col="#006d77",
+        density=100,
+        cex.names = 0.6,
+        ylim = c(0,350))
+
+text(x = g9, 
+     y = table(cuestionario$religion), 
+     label = table(cuestionario$religion), 
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+```
+
+```{r}
+p5 <- round(prop.table(table(cuestionario$religion))*100,2)
+
+g10 <- barplot(p5,
+        main="frecuencia porcentual por religion",
+        xlab="religion",
+        ylab="porcentaje",
+        border="#83c5be",
+        col="#83c5be",
+        density=80,
+        cex.names = 0.6,
+        ylim = c(0,50))
+
+text(x = g10, 
+     y = p5, 
+     label = p5, 
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+
+```
+
+## función cro()
+
+```{r}
+#| echo: true
+#| warning: false
+#| include: false
+
+cuestionario <- expss::apply_labels(cuestionario,
+                             ocio = c("Beber,ir de copas,bailar"= 1,
+                                      "Hacer deportes" = 2,
+                                      "Viajes,excursiones" = 3,
+                                      "Ir al cine, al teatro" = 4, 
+                                      "Ir a museos, ir a conciertos" = 5, 
+                                      "Leer" = 6),
+                             genero = c("Hombre" = 1, "Mujer" = 2),
+                             colegio = c("En un centro estatal, público" = 1, 
+                                         "En un centro privado, no religioso" = 2,
+                                         "En un centro privado, religioso" = 3),
+                             religion = c("Católico practicante" = 1,
+                                          "Católico no practicante" = 2,
+                                          "Creyente de otra religión" = 3,
+                                          "No creyente" = 4, 
+                                          "Indiferente" = 5),
+                             amor = c("Tienes novio/a formal" = 1,
+                                      "Ahora no tienes novio/a formal" = 2,
+                                      "Hasta ahora solo has tenido relaciones afectivas pasajeras" = 3,
+                                      "Nunca has tenido una relación especial con un chico/a" = 4))
+```
+
+### Ocio y genero
+
+::: {layout="[0.5, 0.5]"}
+<div>
+
+```{r}
+# absoluta
+cro(cuestionario$ocio, cuestionario$genero)
+```
+
+</div>
+
+<div>
+
+```{r}
+# relativa
+
+cro_rpct(cuestionario$ocio, cuestionario$genero,
+         total_label = c("Total"),
+         total_statistic = c("u_rpct"))
+```
+
+</div>
+:::
+
+### Ocio y colegio
+
+::: {layout="[0.5, 0.5]"}
+<div>
+
+```{r}
+# absoluta
+cro(cuestionario$ocio, cuestionario$colegio)
+```
+
+</div>
+
+<div>
+
+```{r}
+# relativa
+cro_rpct(cuestionario$ocio, cuestionario$colegio,
+         total_label = c("Total"),
+         total_statistic = c("u_rpct"))
+
+```
+
+</div>
+:::
+
+### Amor y religión
+
+```{r}
+# absoluta
+cro(cuestionario$amor, cuestionario$religion)
+# relativa
+cro_rpct(cuestionario$amor, cuestionario$religion,
+         total_label = c("Total"),
+         total_statistic = c("u_rpct"))
+
+```
+
+### Colegio y religión
+
+```{r}
+# absoluta
+cro(cuestionario$colegio, cuestionario$religion)
+
+# relativa
+
+cro_rpct(cuestionario$colegio, cuestionario$religion,
+         total_label = c("Total"),
+         total_statistic = c("u_rpct"))
+```
+
+## grpah
+
+```{r}
+#| echo: true
+#| warning: false
+#| include: false
+cuestionario <- expss::apply_labels(cuestionario,
+                             ocio = c("Beber,\nir de copas,\nbailar"= 1,
+                                      "Hacer deportes" = 2,
+                                      "Viajes,\nexcursiones" = 3,
+                                      "Ir al cine,\nal teatro" = 4, 
+                                      "Ir a museos,\nir a conciertos" = 5, 
+                                      "Leer" = 6),
+                             genero = c("Hombre" = 1, "Mujer" = 2),
+                             colegio = c("En un centro estatal,\npúblico" = 1, 
+                                         "En un centro privado,\nno religioso" = 2,
+                                         "En un centro privado,\nreligioso" = 3),
+                             religion = c("Católico\npracticante" = 1,
+                                          "Católico\nno practicante" = 2,
+                                          "Creyente\nde otra religión" = 3,
+                                          "No creyente" = 4, 
+                                          "Indiferente" = 5),
+                             amor = c("Tienes novio/a\nformal" = 1,
+                                      "Ahora no tienes\nnovio/a formal" = 2,
+                                      "Hasta ahora solo\n has tenido relaciones\nafectivas pasajeras" = 3,
+                                      "Nunca has tenido\nuna relación especial\ncon un chico/a" = 4))
+```
+
+### Gráfico 15: Ocio y genero
+
+```{r}
+g_a1 <- barplot(
+        table(cuestionario$ocio, cuestionario$genero),
+        beside = T,
+        main="frecuencia absoluta ocio según género",
+        xlab="género",
+        ylab="casos",
+        border=paleta7,
+        col= paleta7,
+        #density=100,
+        ylim= c(0, 150)
+        )
+
+legend("topright",
+        legend = ocio, 
+        fill = paleta7,
+        cex=0.6,
+        xpd = TRUE,
+        inset = c(-0.05,0)
+       )
+
+text(x = g_a1, 
+     y = table(cuestionario$ocio, cuestionario$genero), 
+     label = table(cuestionario$ocio, cuestionario$genero), 
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+```
+
+```{r}
+p11 <- round(prop.table(table(cuestionario$ocio, cuestionario$genero))*100,2)
+
+g_a2 <- barplot(p11,
+                beside = T,
+        main="frecuencia porcentual ocio según género",
+        xlab="género",
+        ylab="porcentaje",
+        border= paleta7,
+        col= paleta7,
+        density=90,
+ylim =  c(0,25))
+
+legend("topright",
+        legend = ocio, 
+        fill = paleta7,
+        cex=0.6,
+       density = 90,
+        xpd = TRUE,
+        inset = c(-0.05,0)
+       )
+
+text(x = g_a2, 
+     y = p11,
+     label = p11,
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+
+
+
+```
+
+### Gráfico 16: Ocio y colegio
+
+```{r}
+g_a3 <- barplot(
+        table(cuestionario$ocio,cuestionario$colegio),
+        beside = T,
+        main="frecuencia absoluta ocio según colegio",
+        xlab="colegio",
+        ylab="casos",
+        border=paleta7,
+        col= paleta7,
+        cex.names = 0.6,
+        #density=100,
+        ylim= c(0, 150)
+        )
+
+legend("topright",
+        legend = ocio, 
+        fill = paleta7,
+        cex=0.6,
+        xpd = TRUE,
+        inset = c(-0.05,0) )
+
+text(x = g_a3, 
+     y = table(cuestionario$ocio, cuestionario$colegio), 
+     label = table(cuestionario$ocio,cuestionario$colegio), 
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+```
+
+```{r}
+
+
+p22 <- round(prop.table(table(cuestionario$ocio, cuestionario$colegio))*100,2)
+
+g_a4 <- barplot(p22,
+                beside = T,
+        main="frecuencia porcentual ocio según colegio",
+        xlab="colegio",
+        ylab="porcentaje",
+        border= paleta7,
+        col= paleta7,
+        density=90,
+        cex.names = 0.6,
+ylim =  c(0,25))
+
+legend("topright",
+        density = 90,
+        legend = ocio,
+        fill = paleta7,
+        cex=0.6,
+        xpd = TRUE,
+        inset = c(-0.05,0)
+       )
+
+text(x = g_a4, 
+     y = p22,
+     label = p22,
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+
+```
+
+### Gráfico 17: Amor y religión
+
+```{r}
+
+g_a5 <- barplot(
+        table(cuestionario$amor, cuestionario$religion),
+        beside = T,
+        main="frecuencia absoluta situación sentimental según percepción religiosa",
+        xlab="percepción religiosa",
+        ylab="casos",
+        border=paleta4,
+        col= paleta4,
+        cex.names = 0.6,
+        #density=100,
+        ylim= c(0,200)
+        )
+
+legend("topright",
+        legend = insideout,
+        fill = paleta4,
+        cex=0.6,
+        xpd = TRUE,
+        inset = c(-0.05,0) )
+
+text(x = g_a5, 
+     y = table(cuestionario$amor, cuestionario$religion), 
+     label = table(cuestionario$amor, cuestionario$religion), 
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+```
+
+```{r}
+
+p33 <- round(prop.table(table(cuestionario$amor, cuestionario$religion))*100,2)
+
+g_a6 <- barplot(p33,
+                beside = T,
+        main="frecuencia porcentual ocio según colegio",
+        xlab="percepción religiosa",
+        ylab="porcentaje",
+        border= paleta4,
+        col= paleta4,
+        density=90,
+        cex.names = 0.6,
+ylim =  c(0,25))
+
+legend("topright",
+        density = 90,
+        legend = insideout,
+        fill = paleta4,
+        cex=0.6,
+        xpd = TRUE,
+        inset = c(-0.05,0)
+       )
+
+text(x = g_a6, 
+     y = p33,
+     label = p33,
+     pos = 3, 
+     cex = 0.6, 
+     col = "black")
+
+
+```
+
+### Gráfico 18: Colegio y religión
+
+```{r}
+g_a7 <- barplot(
+        table(cuestionario$colegio, cuestionario$religion),
+        beside = T,
+        main="frecuencia absoluta percepción religiosa  según lugar de estudio",
+        xlab="percepción religiosa",
+        ylab="casos",
+        border=paleta3,
+        col= paleta3,
+        cex.names = 0.6,
+        #density=100,
+        ylim= c(0,300)
+        )
+
+legend("topright",
+        legend = estudio,
+        fill = paleta3,
+        cex=0.6,
+        xpd = TRUE,
+        inset = c(-0.05,0) )
+
+text(x = g_a7, 
+     y = table(cuestionario$colegio, cuestionario$religion), 
+     label = table(cuestionario$colegio, cuestionario$religion), 
+     pos = 3, 
+     cex = 0.8, 
+     col = "black")
+```
+
+```{r}
+# relativa
+p44 <- round(prop.table(table(cuestionario$colegio, cuestionario$religion))*100,2)
+
+g_a8 <- barplot(p44,
+                beside = T,
+        main="frecuencia porcentual percepción religiosa  según lugar de estudio",
+        xlab="percepción religiosa",
+        ylab="porcentaje",
+        border= paleta3,
+        col= paleta3,
+        density=90,
+        cex.names = 0.6,
+        ylim =  c(0,40))
+
+legend("topright",
+        density = 90,
+        legend = estudio,
+        fill = paleta3,
+        cex=0.6,
+        xpd = TRUE,
+        inset = c(-0.05,0)
+       )
+
+text(x = g_a8, 
+     y = p44,
+     label = p44,
+     pos = 3, 
+     cex = 0.7, 
+     col = "black")
+
+```
+
+## Análisis descriptivo
+
+### Medidas de tendencia central
+
+```{r}
+#| warning: false
+#| message: false
+#| 
+library(rstatix)
+
+cuestionario %>%
+  get_summary_stats(horas,tv,niños,hijos1,hijos2,libros, ingreso1, ingreso2,ingreso3,edad, type="common")
+```
+
+### variables cuantitativas
+
+#### horas
+
+```{r}
+boxplot(cuestionario$horas, na.action = NULL,
+        xlab = "Horas",
+        ylab = "y",
+        main="Horas destinadas al tiempo libre", 
+        ann = T, 
+        horizontal = TRUE,
+        varwidth = F, outline=T, col="#ef798a")
+```
+
+#### tv
+
+```{r}
+boxplot(cuestionario$tv, na.action = NULL,
+        xlab = "Horas",
+        ylab = "y",
+        main="Horas destinadas al tiempo libre", 
+        ann = T, 
+        horizontal = TRUE,
+        varwidth = F, outline=T, col="#ef798a")
+```
+
+#### niños
+
+```{r}
+boxplot(cuestionario$niños, na.action = NULL,
+        xlab = "Horas",
+        ylab = "y",
+        main="Horas destinadas al tiempo libre", 
+        ann = T, 
+        horizontal = TRUE,
+        varwidth = F, outline=T, col="#ef798a")
+```
+
+#### hijos1
+
+```{r}
+boxplot(cuestionario$hijos1, na.action = NULL,
+        xlab = "Horas",
+        ylab = "y",
+        main="Horas destinadas al tiempo libre", 
+        ann = T, 
+        horizontal = TRUE,
+        varwidth = F, outline=T, col="#ef798a")
+```
+
+#### hijos2
+
+```{r}
+boxplot(cuestionario$hijos2, na.action = NULL,
+        xlab = "Horas",
+        ylab = "y",
+        main="Horas destinadas al tiempo libre", 
+        ann = T, 
+        horizontal = TRUE,
+        varwidth = F, outline=T, col="#ef798a")
+```
+
+#### libros
+
+
+```{r}
+boxplot(cuestionario$libros, na.action = NULL,
+        xlab = "Horas",
+        ylab = "y",
+        main="Horas destinadas al tiempo libre", 
+        ann = T, 
+        horizontal = TRUE,
+        varwidth = F, outline=T, col="#ef798a")
+```
+
+#### ingreso1
+
+
+```{r}
+boxplot(cuestionario$ingreso1, na.action = NULL,
+        xlab = "Horas",
+        ylab = "y",
+        main="Horas destinadas al tiempo libre", 
+        ann = T, 
+        horizontal = TRUE,
+        varwidth = F, outline=T, col="#ef798a")
+```
+
+#### ingreso2
+
+
+```{r}
+boxplot(cuestionario$ingreso2, na.action = NULL,
+        xlab = "Horas",
+        ylab = "y",
+        main="Horas destinadas al tiempo libre", 
+        ann = T, 
+        horizontal = TRUE,
+        varwidth = F, outline=T, col="#ef798a")
+```
+
+#### ingreso3
+
+```{r}
+boxplot(cuestionario$ingreso3, na.action = NULL,
+        xlab = "Horas",
+        ylab = "y",
+        main="Horas destinadas al tiempo libre", 
+        ann = T, 
+        horizontal = TRUE,
+        varwidth = F, outline=T, col="#ef798a")
+```
+
+#### edad
+
+
+```{r}
+boxplot(cuestionario$edad, na.action = NULL,
+        xlab = "Horas",
+        ylab = "y",
+        main="Horas destinadas al tiempo libre", 
+        ann = T, 
+        horizontal = TRUE,
+        varwidth = F, outline=T, col="#ef798a")
+```
+
 # Cuarta parte: Contrastes de hipótesis
 
-Utilizando los datos del archivo cuestionario y técnicas paramétricss y no paramétricas,
+Utilizando los datos del archivo cuestionario y técnicas paramétricas y no paramétricas,
 
-a)  Determinar con un nivel de significación del 5% si el promedio de horas libres a la semana para ocio o diversión en los hombres es mayor a la de las mujeres. Concluir en términos del problema
+## Situación 1
 
-b)  Determinar si hay diferencias en la cantidad promedio de libros leídos si tenemos en cuenta la asistencia de los jóvenes a colegio estatal o privado. Utilizar un nivel de significación del 5%. Concluir en términos del problema
+Determinar con un nivel de significación del 5%: si el promedio de horas libres a la semana para ocio o diversión en los hombres es mayor a la de las mujeres. Concluir en términos del problema y determinar cuál es el test más adecuado.
 
-c)  Determinar en cada caso, cuál es el test más adecuado. Justificar.
+-   Chequear que la distribucion de la variable es normal
+
+```{r}
+#| warning: false
+#| message: false
+#| 
+library(ggpubr)
+library(rstatix)
+
+
+shapiro_test(cuestionario$horas)
+
+cuestionario %>%
+  group_by(genero) %>%
+  shapiro_test(horas)
+
+ggqqplot(cuestionario, "horas")
+ggqqplot(cuestionario, "horas", facet.by = "genero")
+```
+
+La variable no es normal. Se rechaza el test de normalidad y en el qqplot se observa que los puntos caen por fuera de la recta normal
+
+-   testeo de homocedasticidad de varianzas
+
+```{r}
+car::leveneTest(cuestionario$horas ~ as.factor(cuestionario$genero))
+```
+
+Como el *p-value* es mayor a 0.05 no rechazo la hipotesis de igualdad de varianzas. Como la variable no proviene de una poblacion normal no puedo usar un t-test como chequee que se cumpla el suspuesto de homocedasticidad puedo usar el test de mann- whitney para testear la igualdad de promedios entre los grupos
+
+```{r}
+cuestionario %>% wilcox_test(horas ~ genero)
+```
+
+Como pv \> 0.05 no rechazo la hipotesis nula de igualdad de medias con un nivel de significacion del 5%. Es decir, con un alfa de 0.05 no rechazo la hipotesis de que el promedio de horas de ocio de los hombres es igual al promedio de horas de las mujeres
+
+## Situación 2
+
+Determinar si hay diferencias en la cantidad promedio de libros leídos si tenemos en cuenta la asistencia de los jóvenes a colegio estatal o privado. Utilizar un nivel de significación del 5%. Concluir en términos del problema y determinar cuál es el test más adecuado.
+
+-   Reclasifico la variable colegio en estatal o privado
+
+```{r}
+cuestionario$colegio2 <- ifelse(cuestionario$colegio %in% 1, "Estatal", "Privado")
+
+table(cuestionario$colegio, cuestionario$colegio2) %>% kbl()
+
+```
+
+-   Chequear que la distribucion de la variable es normal
+
+```{r}
+#| warning: false
+#| message: false
+
+shapiro_test(cuestionario$libros)
+
+cuestionario %>%
+  group_by(genero) %>%
+  shapiro_test(libros)
+
+ggqqplot(cuestionario, "libros")
+ggqqplot(cuestionario, "libros", facet.by = "colegio2")
+```
+
+La variable no es normal. Se rechaza el test de normalidad y en el qqplot se observa que los puntos caen por fuera de la recta normal
+
+-   testeo de homocedasticidad de varianzas
+
+```{r}
+car::leveneTest(cuestionario$libros ~ as.factor(cuestionario$colegio2))
+```
+
+Como el p-value es mayor a 0.05 no rechazo la hipotesis de igualdad de varianzas. Como la variable no proviene de una poblacion normal no puedo usar un t-test, tengo que usar el test de mann- whitney
+
+```{r}
+cuestionario %>% wilcox_test(libros ~ colegio2)
+```
+
+Como pv \> 0.05 no rechazo la hipotesis nula de igualdad de medias con un nivel de significacion del 5%. Es decir, con un alfa de 0.05 no rechazo la hipotesis de que el promedio de libros leidos (excluyendo los libros de texto) de los alumnos de escuelas publicas es igual al promedio de libros leidos de los alumnos de escuela privada
